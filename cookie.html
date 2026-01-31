@@ -168,8 +168,56 @@
     
     /* Animations */
 
-
-  </style>
+    /* HOME HEADER REPLICA */
+header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 0;
+      transition: all 0.3s ease;
+    }
+    header.scrolled {
+      background: rgba(253, 252, 250, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 14px 0;
+      box-shadow: 0 1px 0 var(--border);
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo { height: 44px; }
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 40px;
+    }
+    @media (min-width: 900px) { .nav-links { display: flex; } }
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-soft);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--purple); }
+    .nav-cta .btn { padding: 12px 24px; font-size: 0.9rem; }
+    .menu-btn {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    @media (min-width: 900px) { .menu-btn { display: none; } }
+    .menu-btn span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
+</style>
   <link rel="stylesheet" href="shell.css">
 </head>
 <body class="has-home-shell">
