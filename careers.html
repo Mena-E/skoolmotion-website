@@ -1,274 +1,41 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Support &amp; FAQ | SkoolMotion</title>
-<meta content="Get help with SkoolMotion - Frequently asked questions and customer support." name="description"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Careers | SkoolMotion</title>
+  <meta name="description" content="SkoolMotion Careers information." />
+  <style>
     :root {
-      --purple: #281C82;
-      --purple-dark: #1a1259;
-      --pink: #D31C82;
-      --cream: #FDFCFA;
-      --cream-dark: #F5F3EF;
-      --text: #1a1a1f;
-      --text-soft: #4a4a52;
-      --text-muted: #7a7a85;
-      --border: #e8e6e1;
-      --white: #ffffff;
+      --bg:#ffffff;
+      --bg-soft:#faf8f5;
+      --text:#0a0a1a;
+      --text-soft:#5b5b70;
+      --purple:#1f1d63;
+      --border:#e7e3ee;
+      --radius:20px;
     }
-    
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    html { scroll-behavior: smooth; }
-    
     body {
-      font-family: 'Outfit', -apple-system, sans-serif;
-      background: var(--cream);
-      color: var(--text);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.6;
     }
-    
-    .container {
-      width: 100%;
-      max-width: 1200px;
+    .page-wrap {
+      max-width: 920px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 42px 24px 64px;
     }
-    .content-container {
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    
-    header {
-      padding: 20px 0;
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    
-    .logo { height: 40px; }
-    
-    .back-link {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--purple);
-      text-decoration: none;
-    }
-    
-    .back-link:hover { text-decoration: underline; }
-    
-    main {
-      padding: 60px 0 100px;
-    }
-    
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-      color: var(--text);
-    }
-    
-    .intro {
-      font-size: 1.1rem;
-      color: var(--text-soft);
-      margin-bottom: 48px;
-    }
-    
-    h2 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-top: 48px;
-      margin-bottom: 24px;
-      color: var(--text);
-    }
-    
-    .faq-item {
-      background: var(--white);
+    .card {
+      background: var(--bg-soft);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: var(--radius);
       padding: 24px;
-      margin-bottom: 16px;
     }
-    
-    .faq-question {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 12px;
-    }
-    
-    .faq-answer {
-      color: var(--text-soft);
-      margin: 0;
-    }
-    
-    .faq-answer a {
-      color: var(--purple);
-    }
-    
-    .contact-section {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 40px;
-      margin-top: 60px;
-      text-align: center;
-    }
-    
-    .contact-section h2 {
-      margin-top: 0;
-      margin-bottom: 16px;
-    }
-    
-    .contact-section p {
-      color: var(--text-soft);
-      margin-bottom: 32px;
-    }
-    
-    .contact-methods {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-    
-    @media (min-width: 600px) {
-      .contact-methods { grid-template-columns: repeat(3, 1fr); }
-    }
-    
-    .contact-method {
-      padding: 24px;
-      background: var(--cream);
-      border-radius: 12px;
-    }
-    
-    .contact-method-icon {
-      width: 48px;
-      height: 48px;
-      background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 100%);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 16px;
-    }
-    
-    .contact-method-icon svg {
-      width: 24px;
-      height: 24px;
-      color: white;
-    }
-    
-    .contact-method h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-    
-    .contact-method p {
-      font-size: 0.9rem;
-      color: var(--text-soft);
-      margin-bottom: 0;
-    }
-    
-    .contact-method a {
-      color: var(--purple);
-      text-decoration: none;
-      font-weight: 500;
-    }
-    
-    .contact-method a:hover {
-      text-decoration: underline;
-    }
-    
-    footer {
-      padding: 32px 0;
-      background: var(--cream-dark);
-      border-top: 1px solid var(--border);
-      text-align: center;
-    }
-    
-    footer p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    /* Footer */
-    footer {
-      padding: 72px 0 36px;
-      background: var(--cream);
-      border-top: 1px solid var(--border);
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 40px;
-      margin-bottom: 56px;
-    }
-    @media (min-width: 768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
-    .footer-brand { max-width: 280px; }
-    .footer-logo { height: 40px; margin-bottom: 16px; }
-    .footer-brand p { font-size: 0.9rem; line-height: 1.65; margin-bottom: 20px; }
-    .social-links { display: flex; gap: 10px; }
-    .social-links a {
-      width: 38px;
-      height: 38px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s;
-    }
-    .social-links a:hover { background: var(--purple); border-color: var(--purple); }
-    .social-links svg { width: 18px; height: 18px; color: var(--text-soft); }
-    .social-links a:hover svg { color: var(--white); }
-    .footer-col h4 {
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 18px;
-    }
-    .footer-col ul { list-style: none; }
-    .footer-col li { margin-bottom: 12px; }
-    .footer-col a { font-size: 0.9rem; color: var(--text-soft); text-decoration: none; transition: color 0.2s; }
-    .footer-col a:hover { color: var(--purple); }
-    .footer-bottom {
-      padding-top: 32px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      align-items: center;
-    }
-    @media (min-width: 768px) { .footer-bottom { flex-direction: row; justify-content: space-between; } }
-    .copyright { font-size: 0.85rem; color: var(--text-muted); }
-    .legal-links { display: flex; gap: 24px; }
-    .legal-links a { font-size: 0.85rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
-    .legal-links a:hover { color: var(--purple); }
-</style>
+    h1 { margin: 0 0 10px; }
+    a { color: var(--purple); }
+  </style>
   <link rel="stylesheet" href="shell.css">
 </head>
 <body class="has-home-shell">
@@ -290,102 +57,16 @@
     </div>
   </header>
 <main>
-<div class="content-container">
-<h1>Support &amp; FAQ</h1>
-<p class="intro">Find answers to common questions or get in touch with our support team.</p>
-<h2>Frequently Asked Questions</h2>
-<div class="faq-item">
-<h3 class="faq-question">How do I sign up for SkoolMotion?</h3>
-<p class="faq-answer">Download the SkoolMotion app from the App Store or Google Play. Create an account using your phone number, add your child's information and school, and choose a ride plan that works for your family. Setup takes less than 5 minutes.</p>
-</div>
-<div class="faq-item">
-<h3 class="faq-question">How are drivers vetted?</h3>
-<p class="faq-answer">All SkoolMotion drivers hold Massachusetts 7D certification, which is the state requirement for school transportation. They also undergo comprehensive background checks including criminal history and SORI (Sex Offender Registry Information) screening, plus medical clearance from a licensed physician.</p>
-</div>
-<div class="faq-item">
-<h3 class="faq-question">What areas do you serve?</h3>
-<p class="faq-answer">We currently serve the Greater Boston area, including Boston, Brookline, Cambridge, Somerville, Newton, and surrounding communities. Enter your address in the app to check availability and see pricing for your specific route.</p>
-</div>
-<div class="faq-item">
-<h3 class="faq-question">How does real-time tracking work?</h3>
-<p class="faq-answer">Once your child's ride begins, you can track the vehicle in real-time on a map in the app. You'll also receive notifications when the driver is on the way, when your child is picked up, and when they arrive at school safely.</p>
-</div>
-<div class="faq-item">
-<h3 class="faq-question">What's the difference between scheduled rides and on-demand?</h3>
-<p class="faq-answer">Scheduled rides are recurring daily rides (morning, afternoon, or both) at set times—perfect for regular school transportation. On-demand rides are one-time rides you can book as needed, great for after-school activities, early dismissals, or backup when your schedule changes.</p>
-</div>
-<div class="faq-item">
-<h3 class="faq-question">How do I cancel a ride?</h3>
-<p class="faq-answer">You can cancel scheduled rides in the app at least 2 hours before pickup time at no charge. For on-demand rides, cancel within 5 minutes of booking for a full refund. Go to "My Rides" in the app and tap the ride you want to cancel.</p>
-</div>
-<div class="faq-item">
-<h3 class="faq-question">Who can pick up my child?</h3>
-<p class="faq-answer">Only individuals you've authorized in the app can receive your child at dropoff. You can add authorized pickup persons (with their photo) in the app under your child's profile. Drivers verify identity before releasing children.</p>
-</div>
-<div class="faq-item">
-<h3 class="faq-question">What if my child has special needs?</h3>
-<p class="faq-answer">We accommodate many special needs including car seats, booster seats, and specific pickup/dropoff instructions. Add any special requirements to your child's profile, and we'll match you with a driver who can accommodate them. Contact us if you have specific questions about accommodations.</p>
-</div>
-<div class="faq-item">
-<h3 class="faq-question">How do payments work?</h3>
-<p class="faq-answer">Add a credit card or debit card to your account. Scheduled ride plans are billed monthly in advance. On-demand rides are charged when you book. You can view all charges and receipts in the app under "Payment History."</p>
-</div>
-<div class="faq-item">
-<h3 class="faq-question">What happens if the driver is late?</h3>
-<p class="faq-answer">We monitor all rides in real-time. If a driver is running more than a few minutes late due to traffic or other issues, you'll receive a notification with an updated ETA. If a driver cannot complete the ride, we'll work to arrange a replacement or notify you immediately.</p>
-</div>
-<div class="faq-item">
-<h3 class="faq-question">How do I update my child's school or pickup address?</h3>
-<p class="faq-answer">Go to "My Children" in the app, tap on your child's profile, and edit the school or pickup address. Changes to scheduled rides will take effect on the next school day. Pricing may change if the distance changes significantly.</p>
-</div>
-<div class="faq-item">
-<h3 class="faq-question">How do I delete my account?</h3>
-<p class="faq-answer">You can request account deletion by emailing <a href="mailto:privacy@skoolmotion.com">privacy@skoolmotion.com</a> or through the app settings under "Account" → "Delete Account." Please note that any active ride plans must be canceled first, and certain records may be retained as required by law.</p>
-</div>
-
-      <div class="contact-section" id="contact">
-        <h2>Still Need Help?</h2>
-        <p>Our support team is here for you. Reach out and we'll get back to you as soon as possible.</p>
-
-        <div class="contact-methods">
-          <div class="contact-method">
-            <div class="contact-method-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                <polyline points="22,6 12,13 2,6"/>
-              </svg>
-            </div>
-            <h3>Email</h3>
-            <p><a href="mailto:support@skoolmotion.com">support@skoolmotion.com</a></p>
-          </div>
-
-          <div class="contact-method">
-            <div class="contact-method-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-              </svg>
-            </div>
-            <h3>Phone</h3>
-            <p><a href="tel:+16179919152">(617) 991-9152</a></p>
-          </div>
-
-          <div class="contact-method">
-            <div class="contact-method-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-            </div>
-            <h3>Office</h3>
-            <p>675 VFW Parkway, Suite 103<br>Chestnut Hill, MA 02467</p>
-          </div>
-        </div>
-      </div>
-
+  <div class="page-wrap">
+    <h1>Careers</h1>
+    <div class="card">
+      <p>Our careers page is coming soon.</p>
+      <p>If you need anything, email <a href="mailto:support@skoolmotion.com">support@skoolmotion.com</a>.</p>
+      <p><a href="index.html">Back to Home</a></p>
     </div>
-  </main>
-
-  <footer id="contact">
+  </div>
+</main>
+<footer id="contact">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
@@ -437,9 +118,7 @@
       </div>
     </div>
   </footer>
-
 <script>
-  // Header scroll effect (matches Home)
   const header = document.getElementById('header');
   if (header) {
     window.addEventListener('scroll', () => {
