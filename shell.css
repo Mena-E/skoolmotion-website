@@ -137,18 +137,20 @@ body.has-home-shell{ padding-top: 92px; }
 /* FOOTER (copied from home, scoped to footer) */
 #contact{
   background:var(--bg-soft);
+  text-align:left;
   padding:90px 0 34px;
   border-top:1px solid var(--border);
 }
-#contact .footer-grid{
+ #contact .footer-grid{
   display:grid;
+  align-items:start;
   grid-template-columns:1fr;
   gap:46px;
   padding-bottom:44px;
   border-bottom:1px solid var(--border);
 }
 @media (min-width: 768px){ #contact .footer-grid{ grid-template-columns: 2fr 1fr 1fr 1fr; } }
-#contact .footer-brand{ max-width:280px; }
+#contact .footer-brand{ max-width:280px; text-align:left; justify-self:start; }
 #contact .footer-logo{ height:40px; margin-bottom:16px; width:auto; }
 #contact .footer-brand p{ font-size:0.9rem; line-height:1.65; margin-bottom:20px; color:var(--text-soft); }
 #contact .social-links{ display:flex; gap:12px; }
@@ -208,3 +210,10 @@ body.has-home-shell{ padding-top: 92px; }
   font-weight:600;
 }
 #contact .legal-links a:hover{ color:var(--purple); }
+
+
+/* Non-clickable placeholders (e.g., Careers/Press until pages are ready) */
+.disabled-link{ pointer-events:none; cursor:default; text-decoration:none; }
+.disabled-link:hover{ text-decoration:none; }
+
+#contact .footer-col{ text-align:left; }

@@ -36,4 +36,13 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.config-address').forEach(el => {
     el.innerHTML = SITE_CONFIG.address + "<br>" + SITE_CONFIG.city;
   });
+
+  // Disable placeholder links (Careers / Press) until pages are ready
+  document.querySelectorAll('a[href="careers.html"], a[href="press.html"]').forEach(a => {
+    a.classList.add('disabled-link');
+    a.setAttribute('aria-disabled', 'true');
+    a.setAttribute('tabindex', '-1');
+    a.addEventListener('click', (e) => e.preventDefault());
+  });
+
 });
