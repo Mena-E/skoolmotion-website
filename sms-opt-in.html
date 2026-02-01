@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SMS Opt-In | SkoolMotion</title>
+<meta content="SkoolMotion SMS messaging opt-in for account verification and ride notifications." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+    :root {
+      --purple: #281C82;
+      --purple-dark: #1a1259;
+      --pink: #D31C82;
+      --cream: #FDFCFA;
+      --cream-dark: #F5F3EF;
+      --text: #1a1a1f;
+      --text-soft: #4a4a52;
+      --text-muted: #7a7a85;
+      --border: #e8e6e1;
+      --white: #ffffff;
+      --success: #16a34a;
+    }
+    
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: 'Outfit', -apple-system, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--purple);
+      text-decoration: none;
+    }
+
+    /* Main Content */
+    .main-content {
+      min-height: calc(100vh - 200px);
+      display: flex;
+      align-items: center;
+      padding: 60px 0;
+    }
+
+    .opt-in-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 24px;
+      padding: 48px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .opt-in-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .opt-in-header h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--purple);
+      margin-bottom: 12px;
+    }
+
+    .opt-in-header p {
+      color: var(--text-soft);
+      font-size: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 14px 16px;
+      font-family: inherit;
+      font-size: 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      transition: all 0.2s;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px rgba(40, 28, 130, 0.1);
+    }
+
+    .consent-section {
+      background: var(--cream-dark);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .consent-section h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .consent-section ul {
+      list-style: none;
+      margin-bottom: 16px;
+    }
+
+    .consent-section ul li {
+      padding-left: 24px;
+      position: relative;
+      color: var(--text-soft);
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .consent-section ul li::before {
+      content: "•";
+      position: absolute;
+      left: 8px;
+      color: var(--purple);
+      font-weight: bold;
+    }
+
+    .checkbox-group {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      cursor: pointer;
+      accent-color: var(--purple);
+    }
+
+    .checkbox-group label {
+      flex: 1;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .checkbox-group label a {
+      color: var(--purple);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .checkbox-group label a:hover {
+      text-decoration: underline;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 16px 32px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .btn-primary {
+      background: var(--purple);
+      color: var(--white);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background: var(--purple-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(40, 28, 130, 0.3);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .opt-out-info {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .opt-out-info p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .demo-notice {
+      background: #fef3c7;
+      border: 1px solid #fbbf24;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .demo-notice p {
+      color: #92400e;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+      margin-top: 60px;
+    }
+
+    .footer-content {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-content a {
+      color: var(--purple);
+      text-decoration: none;
+      margin: 0 12px;
+    }
+
+    .footer-content a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .opt-in-container {
+        padding: 32px 24px;
+      }
+
+      .opt-in-header h1 {
+        font-size: 1.5rem;
+      }
+    }
+</style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <a class="logo" href="index.html">SkoolMotion</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <div class="opt-in-container">
+        <div class="demo-notice">
+          <p><strong>Demo Page for Twilio Verification</strong> – This page demonstrates our SMS opt-in process. Actual account creation occurs in the mobile app.</p>
+        </div>
+
+        <div class="opt-in-header">
+          <h1>SMS Verification</h1>
+          <p>We'll send you a verification code to confirm your phone number</p>
+        </div>
+
+        <form id="optInForm">
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input 
+              type="tel" 
+              id="phone" 
+              name="phone" 
+              placeholder="(617) 555-0123" 
+              required
+              pattern="[0-9\s\-\(\)]+"
+            />
+          </div>
+
+          <div class="consent-section">
+            <h3>What SMS messages will you receive?</h3>
+            <ul>
+              <li><strong>Account Verification:</strong> One-time verification codes to confirm your phone number and secure your account</li>
+              <li><strong>Ride Notifications:</strong> Real-time updates about driver arrival, ride status, and trip confirmations</li>
+              <li><strong>Important Updates:</strong> Critical notifications about schedule changes, cancellations, or service updates</li>
+              <li><strong>Safety Alerts:</strong> Emergency notifications and safety-related communications</li>
+            </ul>
+          </div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" id="smsConsent" name="smsConsent" required />
+            <label for="smsConsent">
+              I agree to receive SMS messages from SkoolMotion for account verification, ride notifications, and important updates. Message and data rates may apply. I have read and agree to the <a href="terms.html" target="_blank">Terms of Service</a> and <a href="privacy.html" target="_blank">Privacy Policy</a>.
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="submitBtn" disabled>
+            Send Verification Code
+          </button>
+
+          <div class="opt-out-info">
+            <p>
+              <strong>Message Frequency:</strong> You will receive verification codes immediately and ride notifications as scheduled. Message frequency varies based on ride activity.<br/><br/>
+              <strong>Opt-Out:</strong> Reply STOP to any message to unsubscribe from SMS notifications. Reply HELP for assistance.<br/><br/>
+              <strong>Support:</strong> For questions, contact us at <a href="mailto:support@skoolmotion.com">support@skoolmotion.com</a> or call (617) 991-9152
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <p>© 2025 SkoolMotion. All rights reserved.</p>
+        <div style="margin-top: 12px;">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="support.html">Support</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Enable submit button when checkbox is checked
+    const checkbox = document.getElementById('smsConsent');
+    const submitBtn = document.getElementById('submitBtn');
+    const form = document.getElementById('optInForm');
+
+    checkbox.addEventListener('change', function() {
+      submitBtn.disabled = !this.checked;
+    });
+
+    // Handle form submission (demo only)
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('This is a demonstration page for Twilio verification purposes. Actual SMS opt-in occurs during account creation in the SkoolMotion mobile app.');
+    });
+  </script>
+</body>
+</html>
