@@ -1222,12 +1222,48 @@
     });
 
     // Waitlist form
+    const SUPABASE_URL = 'https://npriumbwhuvizswuocqe.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5wcml1bWJ3aHV2aXpzd3VvY3FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc1NDM2NTksImV4cCI6MjA4MzExOTY1OX0.Mtykm5TJJJ21FTkRuIh5Xl6rKZya8EN0_c-hxgRU7Yw';
+
     const waitlistForm = document.getElementById('waitlist-form');
     if (waitlistForm) {
-      waitlistForm.addEventListener('submit', e => {
+      waitlistForm.addEventListener('submit', async e => {
         e.preventDefault();
-        waitlistForm.style.display = 'none';
-        document.getElementById('waitlist-success').style.display = 'block';
+        const emailInput = waitlistForm.querySelector('input[type="email"]');
+        const email = emailInput.value.trim();
+        const submitBtn = waitlistForm.querySelector('button[type="submit"]');
+        const successEl = document.getElementById('waitlist-success');
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+
+        try {
+          const res = await fetch(`${SUPABASE_URL}/rest/v1/skoolmotion_waitlist`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'apikey': SUPABASE_ANON_KEY,
+              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+              'Prefer': 'return=minimal'
+            },
+            body: JSON.stringify({ email })
+          });
+
+          if (res.ok) {
+            waitlistForm.style.display = 'none';
+            successEl.style.display = 'block';
+          } else if (res.status === 409) {
+            waitlistForm.style.display = 'none';
+            successEl.textContent = "You're already on the waitlist! We'll be in touch.";
+            successEl.style.display = 'block';
+          } else {
+            throw new Error('Submission failed');
+          }
+        } catch (err) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Get Early Access';
+          alert('Something went wrong. Please try again.');
+        }
       });
     }
   </script>
