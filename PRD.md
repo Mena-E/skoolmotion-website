@@ -1,6 +1,6 @@
 # SkoolMotion Marketing Website — Product Requirements Document
 
-**Last Updated:** March 16, 2026
+**Last Updated:** March 17, 2026
 **Status:** Live (Waitlist Phase)
 **Owner:** SkoolMotion Team
 
@@ -90,15 +90,22 @@ SkoolMotion is a premium school transportation service for the Greater Boston ar
 
 ## 8. Key Features & Functionality
 
-### 8.1 Waitlist Signup Flow
+### 8.1 Waitlist Signup Flow (Double Opt-In)
 - Email input with client-side validation
+- **Spam protection (3 layers):**
+  - Honeypot hidden field (catches basic bots)
+  - Cloudflare Turnstile invisible CAPTCHA (catches sophisticated bots)
+  - IP-based rate limiting (max 3 submissions per IP per hour)
 - Submission routed through Supabase Edge Function (`skoolmotion-waitlist`)
-- Edge Function handles:
-  - Storing email in Supabase database
-  - Sending branded welcome email to subscriber
-  - Sending admin notification email
-  - Duplicate detection (shows "already registered" message)
-- Success state displays confirmation message mentioning email
+- **Double opt-in verification flow:**
+  1. User submits email → saved to database with `confirmed: false` and unique `confirmation_token`
+  2. Verification email sent with "Confirm Email Address" button
+  3. User clicks confirmation link → `skoolmotion-confirm` Edge Function marks as `confirmed: true`
+  4. Welcome email sent to user after confirmation
+  5. Admin notification sent only after confirmation
+- If user re-submits without confirming → resends verification email
+- If already confirmed → shows "already on the waitlist" message
+- Database columns: `id`, `email`, `created_at`, `confirmed`, `confirmation_token`, `confirmed_at`
 
 ### 8.2 SMS Opt-In (Twilio)
 - Dedicated `/sms-opt-in.html` page for phone number verification
@@ -112,7 +119,7 @@ SkoolMotion is a premium school transportation service for the Greater Boston ar
 
 ### 8.4 Responsive Design
 - Mobile-first, 3 breakpoints: <480px, 480–768px, >1024px
-- Hamburger navigation on mobile (<900px)
+- Hamburger navigation on mobile (<900px) with dropdown menu and animated hamburger-to-X toggle
 
 ### 8.5 SEO & Social
 - Structured data (JSON-LD `LocalBusiness` schema)
@@ -169,7 +176,9 @@ SkoolMotion is a premium school transportation service for the Greater Boston ar
 
 | Service | Purpose | Details |
 |---------|---------|---------|
-| **Supabase** | Database + Edge Functions | Project ID: `npriumbwhuvizswuocqe`. Stores waitlist emails, powers serverless email sending. |
+| **Supabase** | Database + Edge Functions | Project ID: `npriumbwhuvizswuocqe`. Stores waitlist emails, powers serverless email sending and double opt-in verification. |
+| **Cloudflare Turnstile** | Bot protection | Invisible CAPTCHA on waitlist form with server-side token verification. |
+| **Resend** | Transactional email | Sends verification, welcome, and admin notification emails. |
 | **Twilio** | SMS verification | Phone number opt-in for ride notifications and account verification. |
 | **Vercel** | Hosting & deployment | Auto-deploys from `main` branch on push. |
 | **Google Fonts** | Typography | Outfit font family. |
