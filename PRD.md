@@ -63,6 +63,8 @@ SkoolMotion is a premium school transportation service for the Greater Boston ar
 | Route | Purpose | Status |
 |-------|---------|--------|
 | `/` (`index.html`) | Homepage — hero, features, FAQ, waitlist form | Live |
+| `/confirmed.html` | Email confirmation success page | Live |
+| `/confirm-error.html` | Email confirmation error page | Live |
 | `/support.html` | Help Center & FAQ | Live |
 | `/privacy.html` | Privacy Policy (COPPA-compliant) | Live |
 | `/terms.html` | Terms of Service | Live |
@@ -94,18 +96,23 @@ SkoolMotion is a premium school transportation service for the Greater Boston ar
 - Email input with client-side validation
 - **Spam protection (3 layers):**
   - Honeypot hidden field (catches basic bots)
-  - Cloudflare Turnstile invisible CAPTCHA (catches sophisticated bots)
+  - Cloudflare Turnstile invisible CAPTCHA (runs in background, no visible widget)
   - IP-based rate limiting (max 3 submissions per IP per hour)
+- Turnstile configured with `data-size="invisible"`, `data-retry="auto"`, `data-refresh-expired="auto"` for seamless UX
+- Turnstile widget resets automatically on submission errors so users can retry
 - Submission routed through Supabase Edge Function (`skoolmotion-waitlist`)
+- **Database access:** Uses `SECURITY DEFINER` Postgres functions (`upsert_waitlist`, `confirm_waitlist`) to bypass RLS safely, since the `skoolmotion_waitlist` table has anonymous reads blocked via RLS policy
 - **Double opt-in verification flow:**
-  1. User submits email → saved to database with `confirmed: false` and unique `confirmation_token`
-  2. Verification email sent with "Confirm Email Address" button
-  3. User clicks confirmation link → `skoolmotion-confirm` Edge Function marks as `confirmed: true`
-  4. Welcome email sent to user after confirmation
-  5. Admin notification sent only after confirmation
+  1. User submits email → `upsert_waitlist()` RPC checks/inserts atomically, saved with `confirmed: false` and unique `confirmation_token`
+  2. Verification email sent with "Confirm Email Address" button (purple button, legible in both light and dark mode)
+  3. User clicks confirmation link → `skoolmotion-confirm` Edge Function calls `confirm_waitlist()` RPC, marks as `confirmed: true`
+  4. Edge function redirects to `/confirmed.html` (success) or `/confirm-error.html` (invalid/expired token)
+  5. Welcome email sent to user after confirmation
+  6. Admin notification sent to `mekelemu@skoolmotion.com` only after confirmation
 - If user re-submits without confirming → resends verification email
 - If already confirmed → shows "already on the waitlist" message
-- Database columns: `id`, `email`, `created_at`, `confirmed`, `confirmation_token`, `confirmed_at`
+- Database columns: `id`, `email`, `created_at`, `confirmed`, `confirmation_token` (auto-generated UUID), `confirmed_at`
+- RLS policies: "Allow anonymous inserts" (INSERT → true), "Block anonymous reads" (SELECT → false)
 
 ### 8.2 SMS Opt-In (Twilio)
 - Dedicated `/sms-opt-in.html` page for phone number verification
@@ -176,8 +183,8 @@ SkoolMotion is a premium school transportation service for the Greater Boston ar
 
 | Service | Purpose | Details |
 |---------|---------|---------|
-| **Supabase** | Database + Edge Functions | Project ID: `npriumbwhuvizswuocqe`. Stores waitlist emails, powers serverless email sending and double opt-in verification. |
-| **Cloudflare Turnstile** | Bot protection | Invisible CAPTCHA on waitlist form with server-side token verification. |
+| **Supabase** | Database + Edge Functions | Project ID: `npriumbwhuvizswuocqe`. Stores waitlist emails, powers serverless email sending and double opt-in verification. Uses `SECURITY DEFINER` RPC functions for safe RLS bypass. Edge functions: `skoolmotion-waitlist` (signup), `skoolmotion-confirm` (email verification with redirect). |
+| **Cloudflare Turnstile** | Bot protection | Invisible CAPTCHA (`data-size="invisible"`) on waitlist form with server-side token verification. Auto-retry and auto-refresh on token expiry. |
 | **Resend** | Transactional email | Sends verification, welcome, and admin notification emails. |
 | **Twilio** | SMS verification | Phone number opt-in for ride notifications and account verification. |
 | **Vercel** | Hosting & deployment | Auto-deploys from `main` branch on push. |
