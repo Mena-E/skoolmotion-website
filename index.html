@@ -169,6 +169,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: relative;
     }
     .logo { height: 44px; }
     .nav-links {
@@ -196,8 +197,45 @@
       cursor: pointer;
     }
     @media (min-width: 900px) { .menu-btn { display: none; } }
-    .menu-btn span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
-    
+    .menu-btn span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+    nav.menu-open .menu-btn span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    nav.menu-open .menu-btn span:nth-child(2) { opacity: 0; }
+    nav.menu-open .menu-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      padding: 8px 24px 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+      z-index: 99;
+    }
+    nav.menu-open .mobile-menu { display: flex; }
+    .mobile-menu a {
+      padding: 14px 0;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text-soft);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:last-of-type { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--purple); }
+    .mobile-menu .btn {
+      margin-top: 16px;
+      text-align: center;
+    }
+    @media (max-width: 899px) { .nav-cta { display: none; } }
+    @media (min-width: 900px) { .mobile-menu { display: none !important; } }
+
     /* Hero */
     .hero {
       min-height: 100vh;
@@ -821,6 +859,13 @@
 <a class="btn btn-primary" href="#download">Join Waitlist</a>
 </div>
 <button aria-label="Menu" class="menu-btn"><span></span><span></span><span></span></button>
+<div class="mobile-menu">
+<a href="#story">Our Story</a>
+<a href="#features">Features</a>
+<a href="#safety">Safety</a>
+<a href="#contact">Contact</a>
+<a class="btn btn-primary" href="#download">Join Waitlist</a>
+</div>
 </nav>
 </div>
 </header>
@@ -1190,6 +1235,16 @@
     // Header scroll effect
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 30));
+
+    // Mobile menu toggle
+    const menuBtn = document.querySelector('.menu-btn');
+    const nav = document.querySelector('nav');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => nav.classList.toggle('menu-open'));
+      document.querySelectorAll('.mobile-menu a').forEach(a => {
+        a.addEventListener('click', () => nav.classList.remove('menu-open'));
+      });
+    }
     
     // Reveal animations
     const fadeEls = document.querySelectorAll('.fade-up');
