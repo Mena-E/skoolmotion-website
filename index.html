@@ -734,6 +734,9 @@
       margin-top: 12px !important;
       margin-bottom: 0 !important;
     }
+    .waitlist-honeypot { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; overflow: hidden; }
+    .waitlist-turnstile { display: flex; justify-content: center; margin-top: 12px; }
+    .waitlist-turnstile iframe { border-radius: 8px; }
 
     /* FAQ Section */
     .faq { padding: 120px 0; }
@@ -801,6 +804,7 @@
       transform: translateY(0);
     }
   </style>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 <header id="header">
@@ -1127,6 +1131,8 @@
 <input type="email" placeholder="Enter your email address" required aria-label="Email address" class="waitlist-input"/>
 <button type="submit" class="btn btn-white">Get Early Access</button>
 </div>
+<input type="text" name="company_url" tabindex="-1" autocomplete="off" class="waitlist-honeypot" aria-hidden="true"/>
+<div class="waitlist-turnstile cf-turnstile" data-sitekey="0x4AAAAAACr7Kk8VlC9hoVxC" data-theme="dark"></div>
 <p class="waitlist-note">Coming soon to iOS &amp; Android. No spam, ever.</p>
 </form>
 <p class="waitlist-success" id="waitlist-success" style="display:none; color: rgba(255,255,255,0.9); font-size: 1.1rem; margin-top: 16px;">Thanks! You're on the list. Check your email for a confirmation from us.</p>
@@ -1232,6 +1238,21 @@
         const email = emailInput.value.trim();
         const submitBtn = waitlistForm.querySelector('button[type="submit"]');
         const successEl = document.getElementById('waitlist-success');
+        const honeypot = waitlistForm.querySelector('.waitlist-honeypot');
+
+        // Honeypot check — bots fill hidden fields
+        if (honeypot && honeypot.value) {
+          waitlistForm.style.display = 'none';
+          successEl.style.display = 'block';
+          return;
+        }
+
+        // Turnstile token
+        const turnstileToken = waitlistForm.querySelector('[name="cf-turnstile-response"]')?.value;
+        if (!turnstileToken) {
+          alert('Please complete the verification check.');
+          return;
+        }
 
         submitBtn.disabled = true;
         submitBtn.textContent = 'Submitting...';
@@ -1240,7 +1261,7 @@
           const res = await fetch(EDGE_FN_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email })
+            body: JSON.stringify({ email, turnstileToken })
           });
 
           const data = await res.json();
@@ -1252,6 +1273,10 @@
             waitlistForm.style.display = 'none';
             successEl.textContent = "You're already on the waitlist! We'll be in touch.";
             successEl.style.display = 'block';
+          } else if (data.status === 'rate_limited') {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Get Early Access';
+            alert('Too many attempts. Please try again later.');
           } else {
             throw new Error('Submission failed');
           }
