@@ -1177,7 +1177,7 @@
 <button type="submit" class="btn btn-white">Get Early Access</button>
 </div>
 <input type="text" name="company_url" tabindex="-1" autocomplete="off" class="waitlist-honeypot" aria-hidden="true"/>
-<div class="waitlist-turnstile cf-turnstile" data-sitekey="0x4AAAAAACr7Kk8VlC9hoVxC" data-theme="dark"></div>
+<div class="waitlist-turnstile cf-turnstile" data-sitekey="0x4AAAAAACr7Kk8VlC9hoVxC" data-theme="dark" data-retry="auto" data-refresh-expired="auto"></div>
 <p class="waitlist-note">Coming soon to iOS &amp; Android. No spam, ever.</p>
 </form>
 <p class="waitlist-success" id="waitlist-success" style="display:none; color: rgba(255,255,255,0.9); font-size: 1.1rem; margin-top: 16px;">Thanks! We've sent a verification email — please click the link to confirm your spot on the waitlist.</p>
@@ -1331,13 +1331,15 @@
           } else if (data.status === 'rate_limited') {
             submitBtn.disabled = false;
             submitBtn.textContent = 'Get Early Access';
+            if (typeof turnstile !== 'undefined') turnstile.reset();
             alert('Too many attempts. Please try again later.');
           } else {
-            throw new Error('Submission failed');
+            throw new Error(data.error || 'Submission failed');
           }
         } catch (err) {
           submitBtn.disabled = false;
           submitBtn.textContent = 'Get Early Access';
+          if (typeof turnstile !== 'undefined') turnstile.reset();
           alert('Something went wrong. Please try again.');
         }
       });
