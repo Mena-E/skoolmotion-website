@@ -776,8 +776,7 @@
       margin-bottom: 0 !important;
     }
     .waitlist-honeypot { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; overflow: hidden; }
-    .waitlist-turnstile { display: flex; justify-content: center; margin-top: 12px; }
-    .waitlist-turnstile iframe { border-radius: 8px; }
+    .waitlist-turnstile { position: absolute; left: -9999px; }
 
     /* FAQ Section */
     .faq { padding: 120px 0; }
@@ -1180,7 +1179,7 @@
 <button type="submit" class="btn btn-white">Get Early Access</button>
 </div>
 <input type="text" name="company_url" tabindex="-1" autocomplete="off" class="waitlist-honeypot" aria-hidden="true"/>
-<div class="waitlist-turnstile cf-turnstile" data-sitekey="0x4AAAAAACr7Kk8VlC9hoVxC" data-theme="dark" data-retry="auto" data-refresh-expired="auto"></div>
+<div class="waitlist-turnstile cf-turnstile" data-sitekey="0x4AAAAAACr7Kk8VlC9hoVxC" data-theme="dark" data-retry="auto" data-refresh-expired="auto" data-size="invisible"></div>
 <p class="waitlist-note">Coming soon to iOS &amp; Android. No spam, ever.</p>
 </form>
 <p class="waitlist-success" id="waitlist-success" style="display:none; color: rgba(255,255,255,0.9); font-size: 1.1rem; margin-top: 16px;">Thanks! We've sent a verification email — please click the link to confirm your spot on the waitlist.</p>
