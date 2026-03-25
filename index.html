@@ -1441,7 +1441,15 @@
         }
       });
     }
-    // Screenshot lightbox
+  </script>
+<div class="lightbox" id="lightbox">
+<button class="lightbox-close" aria-label="Close">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+</button>
+<img class="lightbox-img" id="lightbox-img" src="" alt=""/>
+<div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+<script>
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxCaption = document.getElementById('lightbox-caption');
@@ -1466,13 +1474,6 @@
     document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox(); });
-  </script>
-<div class="lightbox" id="lightbox">
-<button class="lightbox-close" aria-label="Close">
-<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"></path></svg>
-</button>
-<img class="lightbox-img" id="lightbox-img" src="" alt=""/>
-<div class="lightbox-caption" id="lightbox-caption"></div>
-</div>
+</script>
 </body>
 </html>
