@@ -4,21 +4,21 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SkoolMotion | Trusted School Rides—Scheduled or On-Demand</title>
-<meta content="Safe, reliable school transportation with certified drivers and real-time tracking. Serving Greater Boston families." name="description"/>
+<title>SkoolMotion | School Rides, Summer Camps &amp; On-Demand Transport</title>
+<meta content="Daily school subscriptions, on-demand rides, and summer camp transport with certified drivers, live tracking, and verification PIN pickup. Serving Greater Boston families." name="description"/>
 <!-- Open Graph / Facebook -->
 <meta content="website" property="og:type"/>
 <meta content="https://skoolmotion.com/" property="og:url"/>
-<meta content="Trusted School Rides—Scheduled or On-Demand" property="og:title"/>
-<meta content="Safe, reliable school transportation with certified drivers and real-time tracking. Serving Greater Boston families." property="og:description"/>
+<meta content="School Rides, Summer Camps &amp; On-Demand Transport" property="og:title"/>
+<meta content="Daily school subscriptions, on-demand rides, and summer camp transport with certified drivers, live tracking, and verification PIN pickup. Serving Greater Boston." property="og:description"/>
 <meta content="https://skoolmotion.com/og-image.png" property="og:image"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
 <!-- Twitter -->
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="https://skoolmotion.com/" name="twitter:url"/>
-<meta content="Trusted School Rides—Scheduled or On-Demand" name="twitter:title"/>
-<meta content="Safe, reliable school transportation with certified drivers and real-time tracking. Serving Greater Boston families." name="twitter:description"/>
+<meta content="School Rides, Summer Camps &amp; On-Demand Transport" name="twitter:title"/>
+<meta content="Daily school subscriptions, on-demand rides, and summer camp transport with certified drivers, live tracking, and verification PIN pickup. Serving Greater Boston." name="twitter:description"/>
 <meta content="https://skoolmotion.com/og-image.png" name="twitter:image"/>
 <!-- Favicon -->
 <link href="https://skoolmotion.com/og-image.png" rel="icon" type="image/png"/>
@@ -28,7 +28,7 @@
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "SkoolMotion",
-  "description": "Safe, reliable school transportation with certified drivers and real-time tracking. Serving Greater Boston families.",
+  "description": "Daily school subscriptions, on-demand rides, and summer camp transport with certified drivers, live tracking, and verification PIN pickup. Serving Greater Boston families.",
   "url": "https://skoolmotion.com",
   "telephone": "+16179919152",
   "email": "support@skoolmotion.com",
@@ -353,98 +353,75 @@
       margin-top: 6px;
     }
     
-    /* Hero Card */
+    /* Hero Visual — Phone Screenshot */
     .hero-visual { display: flex; justify-content: center; }
-    .app-card {
+    .phone-frame {
       width: 100%;
-      max-width: 400px;
+      max-width: 320px;
+      border-radius: 36px;
+      overflow: hidden;
+      box-shadow: 0 40px 80px -20px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.05);
       background: var(--white);
+    }
+    .phone-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* App Screenshots Section */
+    .app-screenshots {
+      padding: 120px 0;
+    }
+    .screenshots-grid {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 20px 0 40px;
+      scrollbar-width: none;
+    }
+    .screenshots-grid::-webkit-scrollbar { display: none; }
+    .screenshot-card {
+      flex: 0 0 240px;
+      scroll-snap-align: start;
+      text-align: center;
+    }
+    .screenshot-card .phone-frame {
+      max-width: 240px;
       border-radius: 28px;
-      padding: 28px;
-      box-shadow: 0 40px 80px -20px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.03);
+      margin-bottom: 20px;
+      box-shadow: 0 20px 50px -12px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.04);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .app-card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 24px;
+    .screenshot-card:hover .phone-frame {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 60px -12px rgba(40, 28, 130, 0.25), 0 0 0 1px rgba(0,0,0,0.04);
     }
-    .app-card-title {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      font-weight: 500;
+    .screenshot-card h3 { font-size: 1.1rem; margin-bottom: 6px; }
+    .screenshot-card p { font-size: 0.9rem; color: var(--text-muted); }
+    @media (min-width: 900px) {
+      .screenshots-grid {
+        overflow-x: visible;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 840px;
+        margin: 0 auto;
+      }
+      .screenshot-card {
+        flex: 0 0 calc(33.333% - 16px);
+      }
     }
-    .live-indicator {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 12px;
-      background: rgba(22, 163, 74, 0.1);
-      border-radius: 100px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--success);
+    @media (min-width: 1200px) {
+      .screenshots-grid {
+        max-width: 1100px;
+        gap: 32px;
+      }
+      .screenshot-card {
+        flex: 0 0 calc(20% - 26px);
+      }
     }
-    .live-dot {
-      width: 6px;
-      height: 6px;
-      background: var(--success);
-      border-radius: 50%;
-      animation: pulse 1.5s infinite;
-    }
-    .child-card {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 18px;
-      background: var(--cream);
-      border-radius: 16px;
-      margin-bottom: 16px;
-    }
-    .child-avatar {
-      width: 52px;
-      height: 52px;
-      background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 100%);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: var(--white);
-    }
-    .child-name { font-weight: 600; margin-bottom: 2px; }
-    .child-school { font-size: 0.875rem; color: var(--text-muted); }
-    .status-bar {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 18px;
-      background: rgba(40, 28, 130, 0.06);
-      border-radius: 14px;
-      margin-bottom: 18px;
-    }
-    .status-icon {
-      width: 36px;
-      height: 36px;
-      background: var(--purple);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .status-icon svg { width: 18px; height: 18px; color: var(--white); }
-    .status-text { font-weight: 600; color: var(--purple); }
-    .map-box {
-      height: 130px;
-      background: linear-gradient(135deg, var(--cream) 0%, rgba(40, 28, 130, 0.04) 100%);
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .map-box svg { width: 40px; height: 40px; color: var(--purple-light); opacity: 0.5; }
     
     /* Trust Bar */
     .trust-bar {
@@ -830,7 +807,7 @@
       line-height: 1.7;
       color: var(--text-soft);
     }
-    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-item.open .faq-answer { max-height: 400px; }
 
     /* Animations */
     .fade-up {
@@ -852,20 +829,20 @@
 <nav>
 <a href="index.html"><img alt="SkoolMotion" class="logo" src="logo.png"/></a>
 <div class="nav-links">
-<a href="#story">Our Story</a>
 <a href="#features">Features</a>
+<a href="#app">App</a>
 <a href="#safety">Safety</a>
-<a href="#contact">Contact</a>
+<a href="#faq">FAQ</a>
 </div>
 <div class="nav-cta">
 <a class="btn btn-primary" href="#download">Join Waitlist</a>
 </div>
 <button aria-label="Menu" class="menu-btn"><span></span><span></span><span></span></button>
 <div class="mobile-menu">
-<a href="#story">Our Story</a>
 <a href="#features">Features</a>
+<a href="#app">App</a>
 <a href="#safety">Safety</a>
-<a href="#contact">Contact</a>
+<a href="#faq">FAQ</a>
 <a class="btn btn-primary" href="#download">Join Waitlist</a>
 </div>
 </nav>
@@ -880,7 +857,7 @@
             Now serving Greater Boston — Boston, Brookline, Cambridge, Newton &amp; more
           </div>
 <h1>Safe school rides,<br/><span>reimagined.</span></h1>
-<p class="hero-text">Premium school transportation with certified drivers, real-time tracking, and the peace of mind every parent deserves.</p>
+<p class="hero-text">Daily school subscriptions or on-demand rides — with certified drivers, live tracking, and the peace of mind every parent deserves.</p>
 <div class="hero-buttons">
 <a class="btn btn-primary" href="#download">
               Get Early Access
@@ -904,27 +881,8 @@
 </div>
 </div>
 <div class="hero-visual">
-<div class="app-card">
-<div class="app-card-header">
-<span class="app-card-title">Today's Rides</span>
-<span class="live-indicator"><span class="live-dot"></span>Live</span>
-</div>
-<div class="child-card">
-<div class="child-avatar">E</div>
-<div>
-<div class="child-name">Emma</div>
-<div class="child-school">Lincoln Elementary</div>
-</div>
-</div>
-<div class="status-bar">
-<div class="status-icon">
-<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-</div>
-<span class="status-text">Driver arriving in 5 min</span>
-</div>
-<div class="map-box">
-<svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-</div>
+<div class="phone-frame">
+<img src="screenshots/parent-home.png" alt="SkoolMotion parent app showing upcoming rides, quick actions, and children management" loading="lazy"/>
 </div>
 </div>
 </div>
@@ -953,9 +911,9 @@
 </div>
 <div class="trust-item">
 <div class="trust-icon">
-<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="13" width="15" x="1" y="3"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="11" rx="2" ry="2" width="18" x="3" y="11"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
 </div>
-<span class="trust-label">State-Inspected<br/>Vehicles</span>
+<span class="trust-label">Verification<br/>PIN Pickup</span>
 </div>
 </div>
 </div>
@@ -981,50 +939,102 @@
 <div class="section-header fade-up">
 <span class="section-tag">Features</span>
 <h2>Everything you need for worry-free rides</h2>
-<p>We've thought of everything so you can focus on what matters most.</p>
+<p>Subscribe for daily school transport or book a single ride on demand — we've built it all.</p>
 </div>
 <div class="features-grid">
 <div class="feature-card fade-up">
 <div class="feature-icon">
+<!-- On-demand rides icon -->
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+</div>
+<h3>On-Demand Rides</h3>
+<p>Need a ride right now? Book a single trip between any two addresses and get matched with the nearest certified driver in seconds.</p>
+</div>
+<div class="feature-card fade-up">
+<div class="feature-icon">
+<!-- Live tracking icon -->
 <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
 </div>
-<h3>Real-Time Tracking</h3>
-<p>Know exactly where your child is at all times with live GPS updates and accurate arrival times.</p>
+<h3>Live Ride Tracking</h3>
+<p>Follow your child's ride on a real-time map with GPS updates, status timeline, driver info, and a secure 4-digit verification PIN at pickup.</p>
 </div>
 <div class="feature-card fade-up">
 <div class="feature-icon">
+<!-- Summer programs icon -->
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" x2="12" y1="1" y2="3"></line><line x1="12" x2="12" y1="21" y2="23"></line><line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line><line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line><line x1="1" x2="3" y1="12" y2="12"></line><line x1="21" x2="23" y1="12" y2="12"></line><line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line><line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line></svg>
+</div>
+<h3>Summer Programs</h3>
+<p>Browse verified camps and summer programs near you. Book daily rides to and from camp with flexible scheduling and weekday-based pricing.</p>
+</div>
+<div class="feature-card fade-up">
+<div class="feature-icon">
+<!-- Activities icon -->
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+</div>
+<h3>Activities &amp; Events</h3>
+<p>Transport to tutoring, sports practice, music lessons, and after-school activities. Discover nearby options and book rides in a few taps.</p>
+</div>
+<div class="feature-card fade-up">
+<div class="feature-icon">
+<!-- Carpool icon -->
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+</div>
+<h3>Carpool &amp; Save</h3>
+<p>Opt into carpool matching to share rides with nearby families heading the same direction — and save 20% on every shared ride.</p>
+</div>
+<div class="feature-card fade-up">
+<div class="feature-icon">
+<!-- Shield/safety icon -->
 <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
 </div>
-<h3>7D Certified Drivers</h3>
-<p>All drivers hold Massachusetts 7D certification with background checks and medical clearance.</p>
+<h3>7D Certified &amp; Inspected</h3>
+<p>Every driver holds Massachusetts 7D certification with background checks. Every vehicle passes state safety inspections twice per year.</p>
 </div>
-<div class="feature-card fade-up">
-<div class="feature-icon">
-<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
 </div>
-<h3>Instant Notifications</h3>
-<p>Get alerts when driver departs, arrives for pickup, and when your child is dropped off safely.</p>
 </div>
-<div class="feature-card fade-up">
-<div class="feature-icon">
-<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+</section>
+<section class="app-screenshots" id="app">
+<div class="container">
+<div class="section-header fade-up">
+<span class="section-tag">See the App</span>
+<h2>Built for parents and drivers</h2>
+<p>A polished mobile experience for booking rides, tracking your child in real time, and discovering programs.</p>
 </div>
-<h3>Flexible Scheduling</h3>
-<p>Morning, afternoon, or round trip—customize your schedule and adjust anytime you need.</p>
+<div class="screenshots-grid fade-up">
+<div class="screenshot-card">
+<div class="phone-frame">
+<img src="screenshots/parent-home.png" alt="Parent homescreen with upcoming rides, quick actions, and children list" loading="lazy"/>
 </div>
-<div class="feature-card fade-up">
-<div class="feature-icon">
-<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><line x1="12" x2="12" y1="1" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+<h3>Parent Home</h3>
+<p>Your rides, children, and quick actions at a glance</p>
 </div>
-<h3>Simple Pricing</h3>
-<p>Starting at $15/ride with transparent, distance-based pricing and sibling discounts. No hidden fees, ever.</p>
+<div class="screenshot-card">
+<div class="phone-frame">
+<img src="screenshots/live-tracking.png" alt="Live ride tracking with map, status timeline, verification PIN, and driver info" loading="lazy"/>
 </div>
-<div class="feature-card fade-up">
-<div class="feature-icon">
-<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="13" width="15" x="1" y="3"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+<h3>Live Tracking</h3>
+<p>Real-time map, status updates, and verification PIN</p>
 </div>
-<h3>Inspected Vehicles</h3>
-<p>7D retrofitted vehicles pass rigorous state safety inspections twice per year.</p>
+<div class="screenshot-card">
+<div class="phone-frame">
+<img src="screenshots/summer-programs.png" alt="Summer programs discovery with verified camps and program details" loading="lazy"/>
+</div>
+<h3>Summer Programs</h3>
+<p>Browse verified camps and book rides instantly</p>
+</div>
+<div class="screenshot-card">
+<div class="phone-frame">
+<img src="screenshots/activities-events.png" alt="Activities and events discovery for tutoring, sports, and music" loading="lazy"/>
+</div>
+<h3>Activities &amp; Events</h3>
+<p>Find tutoring, sports, music, and more nearby</p>
+</div>
+<div class="screenshot-card">
+<div class="phone-frame">
+<img src="screenshots/driver-home.png" alt="Driver app homescreen with vehicle info and active ride assignments" loading="lazy"/>
+</div>
+<h3>Driver App</h3>
+<p>Active rides, vehicle info, and one-tap navigation</p>
 </div>
 </div>
 </div>
@@ -1034,23 +1044,23 @@
 <div class="section-header fade-up">
 <span class="section-tag">How It Works</span>
 <h2>Get started in minutes</h2>
-<p>Setting up safe school transportation has never been easier.</p>
+<p>Whether you need daily school transport or a single ride today — it's simple.</p>
 </div>
 <div class="steps">
 <div class="step fade-up">
 <div class="step-number">1</div>
-<h3>Download the App</h3>
-<p>Create your account in under 2 minutes. Available on iOS and Android.</p>
+<h3>Download &amp; Sign Up</h3>
+<p>Create your account and add your children in under 2 minutes. Available on iOS and Android.</p>
 </div>
 <div class="step fade-up">
 <div class="step-number">2</div>
-<h3>Add Your Child</h3>
-<p>Enter school and pickup address to see your personalized pricing instantly.</p>
+<h3>Subscribe or Book</h3>
+<p>Set up a monthly school subscription, book an on-demand ride, or find a summer program — all from the home screen.</p>
 </div>
 <div class="step fade-up">
 <div class="step-number">3</div>
-<h3>Start Riding</h3>
-<p>Get matched with a certified driver. Rides start the next school day.</p>
+<h3>Track &amp; Relax</h3>
+<p>Follow your child's ride on a live map with real-time status updates, driver info, and a secure verification PIN at pickup.</p>
 </div>
 </div>
 </div>
@@ -1165,6 +1175,34 @@
 </button>
 <div class="faq-answer"><div class="faq-answer-inner">Our 99.8% on-time rate speaks for itself, but if a delay occurs you'll be notified immediately with an updated ETA. Our 24/7 support team is always available to assist.</div></div>
 </div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">
+            What are on-demand rides?
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+</button>
+<div class="faq-answer"><div class="faq-answer-inner">On-demand rides let you book a single trip between any two addresses — right now or scheduled up to 7 days ahead. You'll see the price upfront, get matched with the nearest certified driver automatically, and track the ride live on a map.</div></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">
+            Do you offer rides to summer camps and activities?
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+</button>
+<div class="faq-answer"><div class="faq-answer-inner">Yes! Our app includes a Summer Programs hub where you can browse verified camps in the Greater Boston area and subscribe to daily rides. We also offer transport to after-school activities like tutoring, sports, and music lessons.</div></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">
+            What is carpool matching?
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+</button>
+<div class="faq-answer"><div class="faq-answer-inner">When booking an on-demand ride, you can opt into carpool matching. If another family nearby is heading in the same direction, we'll pair you together on a shared ride — and both families save 20% on the fare.</div></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">
+            How does the verification PIN work?
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+</button>
+<div class="faq-answer"><div class="faq-answer-inner">Every ride generates a unique 4-digit PIN that's visible in the app. The driver must verify this PIN at pickup before your child boards the vehicle, adding an extra layer of security to every ride.</div></div>
+</div>
 </div>
 </div>
 </section>
@@ -1203,6 +1241,7 @@
 <ul>
 <li><a href="index.html#story">About Us</a></li>
 <li><a href="index.html#features">Features</a></li>
+<li><a href="index.html#app">App</a></li>
 <li><a href="index.html#safety">Safety</a></li>
 </ul>
 </div>
