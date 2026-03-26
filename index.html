@@ -403,18 +403,16 @@
     .screenshot-card h3 { font-size: 1.1rem; margin-bottom: 6px; }
     .screenshot-card p { font-size: 0.9rem; color: var(--text-muted); }
 
-    /* Lightbox */
+    /* Lightbox Carousel */
     .lightbox {
       display: none;
       position: fixed;
       inset: 0;
       z-index: 1000;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
+      background: rgba(198, 190, 222, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      flex-direction: column;
       opacity: 0;
       transition: opacity 0.3s ease;
     }
@@ -422,21 +420,14 @@
       display: flex;
       opacity: 1;
     }
-    .lightbox-img {
-      max-height: 90vh;
-      max-width: 420px;
-      width: 100%;
-      border-radius: 32px;
-      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
-      object-fit: contain;
-    }
     .lightbox-close {
       position: absolute;
-      top: 20px;
-      right: 24px;
+      top: 16px;
+      right: 20px;
+      z-index: 1001;
       width: 44px;
       height: 44px;
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(40, 28, 130, 0.15);
       border: none;
       border-radius: 50%;
       cursor: pointer;
@@ -445,17 +436,71 @@
       justify-content: center;
       transition: background 0.2s;
     }
-    .lightbox-close:hover { background: rgba(255, 255, 255, 0.3); }
-    .lightbox-close svg { width: 24px; height: 24px; color: white; }
-    .lightbox-caption {
-      position: absolute;
-      bottom: 32px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: rgba(255, 255, 255, 0.8);
+    .lightbox-close:hover { background: rgba(40, 28, 130, 0.3); }
+    .lightbox-close svg { width: 24px; height: 24px; color: var(--purple); }
+    .lightbox-track {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      gap: 40px;
+      padding: 40px 60px;
+    }
+    .lightbox-track::-webkit-scrollbar { display: none; }
+    .lightbox-slide {
+      flex: 0 0 auto;
+      scroll-snap-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .lightbox-phone {
+      width: 300px;
+      background: #000;
+      border-radius: 44px;
+      padding: 12px;
+      box-shadow: 0 30px 80px rgba(40, 28, 130, 0.3), 0 0 0 2px rgba(255,255,255,0.3);
+    }
+    .lightbox-phone img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 34px;
+    }
+    .lightbox-label {
+      font-family: 'Outfit', sans-serif;
       font-size: 1rem;
-      font-weight: 500;
+      font-weight: 600;
+      color: var(--purple);
       text-align: center;
+    }
+    .lightbox-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 0 24px;
+    }
+    .lightbox-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(40, 28, 130, 0.25);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      padding: 0;
+    }
+    .lightbox-dot.active {
+      background: var(--purple);
+      transform: scale(1.3);
+    }
+    @media (min-width: 768px) {
+      .lightbox-phone { width: 360px; border-radius: 48px; padding: 14px; }
+      .lightbox-phone img { border-radius: 38px; }
     }
     @media (min-width: 900px) {
       .screenshots-grid {
@@ -1446,25 +1491,60 @@
 <button class="lightbox-close" aria-label="Close">
 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"></path></svg>
 </button>
-<img class="lightbox-img" id="lightbox-img" src="" alt=""/>
-<div class="lightbox-caption" id="lightbox-caption"></div>
+<div class="lightbox-track" id="lightbox-track"></div>
+<div class="lightbox-dots" id="lightbox-dots"></div>
 </div>
 <script>
     const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxCaption = document.getElementById('lightbox-caption');
+    const track = document.getElementById('lightbox-track');
+    const dotsContainer = document.getElementById('lightbox-dots');
+    const cards = document.querySelectorAll('.screenshot-card');
 
-    document.querySelectorAll('.screenshot-card').forEach(card => {
+    // Build slides from screenshot cards
+    const slides = [];
+    cards.forEach((card, i) => {
+      const img = card.querySelector('img');
+      const title = card.querySelector('h3');
+      slides.push({ src: img.src, alt: img.alt, label: title.textContent });
+
+      const slide = document.createElement('div');
+      slide.className = 'lightbox-slide';
+      slide.innerHTML = '<div class="lightbox-phone"><img src="' + img.src + '" alt="' + img.alt + '" loading="lazy"/></div><div class="lightbox-label">' + title.textContent + '</div>';
+      track.appendChild(slide);
+
+      const dot = document.createElement('button');
+      dot.className = 'lightbox-dot';
+      dot.setAttribute('aria-label', title.textContent);
+      dot.addEventListener('click', () => {
+        track.children[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      });
+      dotsContainer.appendChild(dot);
+
       card.addEventListener('click', () => {
-        const img = card.querySelector('img');
-        const title = card.querySelector('h3');
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightboxCaption.textContent = title.textContent;
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
+        requestAnimationFrame(() => {
+          track.children[i].scrollIntoView({ inline: 'center', block: 'nearest' });
+        });
       });
     });
+
+    // Update active dot on scroll
+    function updateDots() {
+      const trackRect = track.getBoundingClientRect();
+      const center = trackRect.left + trackRect.width / 2;
+      let closest = 0;
+      let minDist = Infinity;
+      Array.from(track.children).forEach((slide, i) => {
+        const rect = slide.getBoundingClientRect();
+        const dist = Math.abs(rect.left + rect.width / 2 - center);
+        if (dist < minDist) { minDist = dist; closest = i; }
+      });
+      dotsContainer.querySelectorAll('.lightbox-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === closest);
+      });
+    }
+    track.addEventListener('scroll', updateDots);
 
     function closeLightbox() {
       lightbox.classList.remove('active');
@@ -1472,7 +1552,7 @@
     }
 
     document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    lightbox.addEventListener('click', e => { if (e.target === lightbox || e.target === track) closeLightbox(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox(); });
 </script>
 </body>
