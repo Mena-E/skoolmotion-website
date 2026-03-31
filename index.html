@@ -369,6 +369,131 @@
       display: block;
     }
 
+    /* Login Screen Mockup */
+    .login-screen-mockup {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9 / 19;
+      overflow: hidden;
+      background: #1A1260;
+    }
+    .login-hero-images {
+      position: absolute;
+      inset: 0;
+    }
+    .login-hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .login-hero-img.active {
+      opacity: 1;
+    }
+    .login-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(26, 18, 96, 0.05) 0%,
+        rgba(26, 18, 96, 0.08) 30%,
+        rgba(26, 18, 96, 0.20) 50%,
+        rgba(26, 18, 96, 0.40) 70%,
+        rgba(26, 18, 96, 0.55) 100%
+      );
+    }
+    .login-ui {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0 20px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .login-logo {
+      width: 160px !important;
+      height: auto !important;
+      margin-bottom: 6px;
+      filter: brightness(0) invert(1);
+    }
+    .login-tagline {
+      font-size: 11px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.9);
+      margin: 0 0 4px;
+      letter-spacing: 0.3px;
+    }
+    .login-trust {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 14px;
+    }
+    .login-trust svg {
+      color: rgba(255,255,255,0.7);
+      flex-shrink: 0;
+    }
+    .login-trust span {
+      font-size: 8px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+    }
+    .login-input-group {
+      width: 100%;
+    }
+    .login-label {
+      display: block;
+      font-size: 9px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 5px;
+    }
+    .login-phone-row {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .login-country {
+      background: rgba(26, 18, 96, 0.7);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 10px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .login-phone-field {
+      flex: 1;
+      background: rgba(26, 18, 96, 0.7);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 10px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.4);
+    }
+    .login-continue-btn {
+      background: #D31C82;
+      border-radius: 8px;
+      padding: 9px;
+      text-align: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.3px;
+    }
+    .login-terms {
+      font-size: 7px;
+      color: rgba(255,255,255,0.4);
+      margin: 8px 0 0;
+      text-align: center;
+    }
+
     /* App Screenshots Section */
     .app-screenshots {
       padding: 120px 0;
@@ -983,7 +1108,34 @@
 </div>
 <div class="hero-visual">
 <div class="phone-frame">
-<img src="screenshots/parent-home.png" alt="SkoolMotion parent app showing upcoming rides, quick actions, and children management" loading="lazy"/>
+<div class="login-screen-mockup">
+  <!-- Crossfading hero images -->
+  <div class="login-hero-images">
+    <img src="screenshots/login-hero-1.jpg" alt="Child safely riding in SkoolMotion vehicle" class="login-hero-img active" />
+    <img src="screenshots/login-hero-2.jpg" alt="Student with phone in SkoolMotion vehicle" class="login-hero-img" />
+    <img src="screenshots/login-hero-3.jpg" alt="Student with laptop in SkoolMotion vehicle" class="login-hero-img" />
+  </div>
+  <!-- Gradient overlay -->
+  <div class="login-overlay"></div>
+  <!-- Login UI overlay -->
+  <div class="login-ui">
+    <img src="logo-white.png" alt="SkoolMotion" class="login-logo" />
+    <p class="login-tagline">School rides, peace of mind.</p>
+    <div class="login-trust">
+      <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+      <span>Trusted by families across Massachusetts</span>
+    </div>
+    <div class="login-input-group">
+      <span class="login-label">Enter your phone number</span>
+      <div class="login-phone-row">
+        <span class="login-country">+1</span>
+        <span class="login-phone-field">(555) 123-4567</span>
+      </div>
+      <div class="login-continue-btn">Continue →</div>
+    </div>
+    <p class="login-terms">By continuing, you agree to our Terms &amp; Privacy Policy</p>
+  </div>
+</div>
 </div>
 </div>
 </div>
@@ -1377,6 +1529,18 @@
     // Header scroll effect
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 30));
+
+    // Login screen hero image crossfade
+    (function() {
+      const imgs = document.querySelectorAll('.login-hero-img');
+      if (imgs.length <= 1) return;
+      let current = 0;
+      setInterval(() => {
+        imgs[current].classList.remove('active');
+        current = (current + 1) % imgs.length;
+        imgs[current].classList.add('active');
+      }, 5000);
+    })();
 
     // Mobile menu toggle
     const menuBtn = document.querySelector('.menu-btn');
