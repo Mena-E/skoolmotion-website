@@ -3,6 +3,11 @@
 // Edit these values to update across all pages
 // =============================================
 
+// Base origin for the SkoolMotion app/API (the Vercel `skoolmotion` project domain).
+// Used by the carpool pre-registration forms and the availability checker.
+// TODO: confirm this domain before launch.
+const API_BASE = "https://app.skoolmotion.com";
+
 const SITE_CONFIG = {
   phone: "(617) 991-9152",
   phoneLink: "tel:+16179919152",
