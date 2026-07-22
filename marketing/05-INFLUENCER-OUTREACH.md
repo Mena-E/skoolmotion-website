@@ -88,7 +88,7 @@ I'm reaching out because transportation is often the #1 barrier for families enr
 
 **Here's what I'm proposing:**
 
-SkoolMotion can provide safe, reliable rides directly to your location. Every driver is 7D certified, background-checked, and GPS-tracked. Parents book through our app and watch the ride in real time.
+SkoolMotion can provide safe, reliable rides directly to your location. Every driver is state-certified to drive schoolchildren, cleared through Massachusetts's criminal and sex-offender registries, and GPS-tracked. Parents book through our app and watch the ride in real time.
 
 For your program, this means:
 - More enrollments (transportation is no longer a barrier)
@@ -116,7 +116,7 @@ I'm [Your Name], founder of SkoolMotion, a new school transportation service lau
 
 I know transportation is a constant topic at PTA meetings — between bus route changes, carpool coordination, and after-school logistics, it affects every family differently.
 
-SkoolMotion offers certified, GPS-tracked rides for students. Every driver holds a Massachusetts 7D license, passes background and SORI checks, and every ride uses a verification PIN for secure pickup.
+SkoolMotion offers certified, GPS-tracked rides for students. Every driver holds a Massachusetts 7D license — the state's special license for driving schoolchildren — and is cleared through the state's criminal and sex-offender registries (CORI and SORI). Every ride uses a verification PIN for secure pickup.
 
 **I'd love to offer [School Name] families:**
 - Priority waitlist access
@@ -186,7 +186,7 @@ Founder, SkoolMotion
 
 | Follower Range | Offer |
 |---------------|-------|
-| 1K - 5K | Free month of service + referral link with earnings |
+| 1K - 5K | Free month of service + referral link with rewards |
 | 5K - 10K | Free month + $100-150 flat fee for 1 post + 2 stories |
 | 10K - 15K | Free month + $150-250 flat fee for 1 post + 3 stories + 1 Reel |
 | 15K+ | Negotiate — likely $300-500+ per post |

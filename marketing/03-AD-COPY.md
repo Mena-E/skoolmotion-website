@@ -37,10 +37,12 @@ Join {{waitlist_count}}+ families on the waitlist. Early access members get excl
 Neither would we.
 
 Every SkoolMotion driver is:
-- 7D certified by Massachusetts
-- Background checked (criminal + sex offender registry)
+- Certified by the state to drive schoolchildren
+- Cleared through Massachusetts's criminal and sex-offender registries
 - Medically cleared by a physician
 - GPS-tracked on every single ride
+
+Cleared to the same standard Massachusetts requires of school bus drivers.
 
 Plus a 4-digit verification PIN your child confirms before boarding. 99.8% on-time rate. Zero safety incidents.
 
@@ -163,20 +165,20 @@ Spots are limited. Launching soon.
 **Long Headlines (up to 5, max 90 chars each):**
 1. Safe, Certified School Transportation for Greater Boston Families
 2. Stop Stressing About School Pickup — SkoolMotion Handles It
-3. GPS-Tracked Rides with Background-Checked Drivers. Join the Waitlist.
+3. GPS-Tracked Rides with Fully Vetted, State-Certified Drivers. Join the Waitlist.
 4. School Rides, Summer Camps & On-Demand Transport. Launching Soon.
 5. 99.8% On-Time Rate. Zero Safety Incidents. Join {{waitlist_count}}+ Families.
 
 **Descriptions (up to 5, max 90 chars each):**
 1. Certified drivers, live GPS tracking, and verification PIN pickup for every ride.
 2. Daily school subscriptions, on-demand rides, and summer camp transport.
-3. Background-checked, medically cleared drivers. State-inspected vehicles.
+3. Fully vetted, medically cleared drivers. State-inspected fleet vehicles.
 4. Book in 30 seconds. Track in real time. Starting at $15/ride. No hidden fees.
 5. Join the waitlist for early access and exclusive pricing in Greater Boston.
 
 **Sitelink Extensions:**
 1. How It Works | Book, track, and relax in 3 simple steps
-2. Safety Standards | 7D certified drivers, GPS tracking, PIN verification
+2. Safety Standards | State-certified drivers, GPS tracking, PIN verification
 3. Pricing | Starting at $15/ride with sibling & carpool discounts
 4. Summer Camps | Daily rides to verified camps in Greater Boston
 

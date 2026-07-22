@@ -19,13 +19,13 @@ Choosing someone to drive your child is one of the most important decisions you'
 
 In Massachusetts, drivers who transport school-age children must hold a 7D license — a state certification specifically for school transport. Ask any service whether their drivers hold this license. If they hesitate, walk away.
 
-At SkoolMotion, 100% of our drivers are 7D certified. No exceptions.
+At SkoolMotion, 100% of our drivers are certified by the state to drive schoolchildren (Massachusetts 7D). No exceptions.
 
-## 2. What background checks do you run?
+## 2. What screenings do you run?
 
-A basic background check isn't enough. Look for services that run:
-- Criminal background checks (CORI in Massachusetts)
-- Sex Offender Registry checks (SORI)
+A name-only screening isn't enough. Look for services that run:
+- State criminal record screening (CORI in Massachusetts)
+- Sex-offender registry screening (SORI)
 - Driving record reviews
 - Reference checks
 
@@ -53,7 +53,7 @@ SkoolMotion's on-time rate is 99.8%.
 
 Massachusetts requires commercial vehicles to be inspected annually. But for a service carrying children, that's a bare minimum. Ask how often vehicles are checked.
 
-SkoolMotion vehicles are state-inspected twice per year — double the requirement.
+Vehicles in SkoolMotion's professional fleet are state-inspected twice per year — double the requirement.
 
 ## 7. Do drivers have medical clearance?
 
@@ -206,8 +206,8 @@ This is the standard every school transportation service should meet. At SkoolMo
 ## Beyond Technology: The Human Layer
 
 Technology is only as good as the people behind it. That's why every SkoolMotion driver also holds:
-- Massachusetts 7D certification
-- Criminal and SORI background clearance
+- Massachusetts 7D certification — the state's special license for driving schoolchildren
+- Clearance through the state's criminal and sex-offender registries (CORI and SORI)
 - Physician-signed medical clearance
 - A clean driving record
 
