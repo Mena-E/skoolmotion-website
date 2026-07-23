@@ -155,7 +155,7 @@
    - Add FAQ content:
      - "What areas do you serve?" → Boston, Brookline, Cambridge, Newton, Somerville, and surrounding Greater Boston
      - "How much does it cost?" → Starting at $15/ride with sibling and carpool discounts
-     - "Are drivers background checked?" → Yes, all drivers are 7D certified, CORI/SORI checked, and medically cleared
+     - "How are drivers vetted?" → Every driver is state-certified to drive schoolchildren (Massachusetts 7D), cleared through the state's criminal and sex-offender registries (CORI and SORI), and medically cleared
      - "When do you launch?" → Soon — join the waitlist for early access
      - "Is there an app?" → Coming soon to iOS and Android. Waitlist members get first access.
      - "How does GPS tracking work?" → Parents see real-time location on a map with pickup/drop-off notifications

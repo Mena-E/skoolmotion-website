@@ -22,7 +22,7 @@
 **Instagram/Facebook:**
 We're SkoolMotion. Safe, certified school rides for Greater Boston families.
 
-Live GPS tracking. Background-checked drivers. Verification PIN pickup.
+Live GPS tracking. Fully vetted drivers. Verification PIN pickup.
 
 We're launching soon — and we're building this for parents like you.
 
@@ -60,18 +60,18 @@ There has to be a better way. (There is.) → [link]
 **Instagram/Facebook:**
 Every SkoolMotion driver is:
 
-- 7D certified by the state of Massachusetts
-- Criminal background checked (CORI)
-- Sex offender registry screened (SORI)
+- Certified by the state to drive schoolchildren
+- Criminal record screened (CORI)
+- Sex-offender registry screened (SORI)
 - Medically cleared by a licensed physician
 - GPS-tracked on every single ride
 
-Because "trust us" isn't enough. We prove it.
+Cleared to the same standard Massachusetts requires of school bus drivers. Because "trust us" isn't enough. We prove it.
 
 Join the waitlist → link in bio
 
 **X:**
-We don't ask you to trust us blindly. Every SkoolMotion driver is 7D certified, background checked, medically cleared, and GPS tracked. Every. Single. Ride.
+We don't ask you to trust us blindly. Every SkoolMotion driver is state-certified to drive schoolchildren, registry-screened, medically cleared, and GPS tracked. Every. Single. Ride.
 
 **Content type:** Checklist graphic with checkmarks
 
@@ -184,8 +184,8 @@ Built SkoolMotion because the school bus was late for the last time. Certified d
 
 ## WEEK 3: Accelerate & Convert (Days 15-21)
 
-### Day 15 — Carpool Comparison
-**Post:** Carpool: text 4 parents, negotiate schedules, hope nobody cancels, pray your kid doesn't get forgotten. SkoolMotion: open app, book, done. Certified driver, GPS tracked, PIN verified. Which sounds better?
+### Day 15 — Group-Text Carpool Comparison
+**Post:** The DIY group-text carpool: text 4 parents, negotiate schedules, hope nobody cancels, pray your kid doesn't get forgotten. SkoolMotion: open app, book, done. Certified driver, GPS tracked, PIN verified. Which sounds better?
 
 ### Day 16 — Feature: Flexible Scheduling
 **Post:** Need a ride Monday, Wednesday, Friday? Done. Just Tuesday? Done. Last-minute Thursday? Also done. SkoolMotion lets you book recurring rides or on-demand — up to 7 days ahead. No contracts. No commitments. Just rides when you need them.
@@ -203,7 +203,7 @@ Built SkoolMotion because the school bus was late for the last time. Certified d
 **Post:** Quick math: share your SkoolMotion waitlist link with 3 parents → your first ride is free. Share with 5 → your first month is free. Share with 10 → you're a Founding Family with a permanent discount. The link is in your welcome email. Use it.
 
 ### Day 21 — Reel: Safety Checklist
-**Reel/TikTok:** Fast-paced checklist: "Things we check before any driver gets behind the wheel:" — 7D certification ✓ — Criminal background ✓ — Sex offender registry ✓ — Medical clearance ✓ — Vehicle inspection ✓ — GPS hardware ✓ — "Your child's safety isn't a feature. It's the whole point."
+**Reel/TikTok:** Fast-paced checklist: "Things we check before any driver gets behind the wheel:" — State certification to drive schoolchildren ✓ — Criminal record screening ✓ — Sex-offender registry screening ✓ — Medical clearance ✓ — Vehicle inspection ✓ — GPS hardware ✓ — "Your child's safety isn't a feature. It's the whole point."
 
 ---
 

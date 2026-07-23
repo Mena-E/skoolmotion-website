@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Carpool Membership | SkoolMotion</title>
+<meta content="A trusted neighbor for the school run. Carpool membership is $89/mo — founding families lock $79/mo for year one. Every driver is fully vetted and state-certified to drive schoolchildren. Available in participating neighborhoods — check yours." name="description"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="https://skoolmotion.com/carpool-membership.html" property="og:url"/>
+<meta content="Carpool Membership | A trusted neighbor for the school run" property="og:title"/>
+<meta content="Founding families lock $79/mo for year one — claim your rate now, pay nothing until a route goes live near you. Available in participating neighborhoods — check yours." property="og:description"/>
+<meta content="https://skoolmotion.com/og-image.png" property="og:image"/>
+<!-- Favicon -->
+<link href="https://skoolmotion.com/og-image.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root {
+      --purple: #281C82;
+      --purple-dark: #1a1259;
+      --purple-light: #3d2da6;
+      --pink: #D31C82;
+      --pink-light: #e94da0;
+      --cream: #FDFCFA;
+      --cream-dark: #F5F3EF;
+      --text: #1a1a1f;
+      --text-soft: #4a4a52;
+      --text-muted: #7a7a85;
+      --border: #e8e6e1;
+      --white: #ffffff;
+      --success: #16a34a;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', -apple-system, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    h1, h2, h3 { font-weight: 600; line-height: 1.2; color: var(--text); }
+    h1 { font-size: clamp(2.5rem, 6vw, 4rem); letter-spacing: -0.03em; }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.02em; }
+    h3 { font-size: 1.25rem; }
+    p { color: var(--text-soft); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .btn-primary { background: var(--purple); color: var(--white); }
+    .btn-primary:hover {
+      background: var(--purple-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px -8px rgba(40, 28, 130, 0.4);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--purple); color: var(--purple); }
+    .btn-white { background: var(--white); color: var(--purple); }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 12px 32px -8px rgba(0,0,0,0.15); }
+
+    /* Navigation */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 0;
+      transition: all 0.3s ease;
+    }
+    header.scrolled {
+      background: rgba(253, 252, 250, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 14px 0;
+      box-shadow: 0 1px 0 var(--border);
+    }
+    nav { display: flex; align-items: center; justify-content: space-between; position: relative; }
+    .logo { height: 44px; }
+    .nav-links { display: none; align-items: center; gap: 40px; }
+    @media (min-width: 900px) { .nav-links { display: flex; } }
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-soft);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--purple); }
+    .nav-cta .btn { padding: 12px 24px; font-size: 0.9rem; }
+    .menu-btn {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    @media (min-width: 900px) { .menu-btn { display: none; } }
+    .menu-btn span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+    nav.menu-open .menu-btn span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    nav.menu-open .menu-btn span:nth-child(2) { opacity: 0; }
+    nav.menu-open .menu-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      background: var(--white);
+      padding: 8px 24px 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+      z-index: 99;
+    }
+    nav.menu-open .mobile-menu { display: flex; }
+    .mobile-menu a {
+      padding: 14px 0;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text-soft);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:last-of-type { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--purple); }
+    .mobile-menu .btn { margin-top: 16px; text-align: center; }
+    .mobile-menu .btn-primary { color: var(--white); }
+    @media (max-width: 899px) { .nav-cta { display: none; } }
+    @media (min-width: 900px) { .mobile-menu { display: none !important; } }
+
+    /* Hero */
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      padding: 160px 0 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%; right: -20%;
+      width: 80%; height: 120%;
+      background: radial-gradient(ellipse, rgba(211, 28, 130, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%; left: -15%;
+      width: 60%; height: 80%;
+      background: radial-gradient(ellipse, rgba(40, 28, 130, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 18px 8px 10px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-soft);
+      margin-bottom: 28px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .hero-badge-dot {
+      width: 10px; height: 10px;
+      background: var(--pink);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    .hero h1 { margin-bottom: 20px; }
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-text {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      max-width: 660px;
+      margin: 0 auto 36px;
+    }
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+    @media (min-width: 480px) { .hero-buttons { flex-direction: row; justify-content: center; } }
+    .hero-note {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 20px;
+    }
+
+    /* Sections */
+    .section { padding: 110px 0; }
+    .section-alt { background: var(--white); }
+    .section-tag {
+      display: inline-block;
+      padding: 8px 18px;
+      background: var(--cream-dark);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--purple);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 24px;
+    }
+    .section-header {
+      text-align: center;
+      max-width: 660px;
+      margin: 0 auto 64px;
+    }
+    .section-header h2 { margin-bottom: 16px; }
+    .section-header p { font-size: 1.1rem; }
+
+    /* Availability checker */
+    .checker-card {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 44px;
+      background: var(--cream);
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    }
+    .checker-form {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 560px) { .checker-form { grid-template-columns: 2fr 1fr auto; align-items: end; } }
+    .checker-field { display: flex; flex-direction: column; gap: 6px; }
+    .checker-field label { font-size: 0.85rem; font-weight: 600; color: var(--text-soft); }
+    .checker-field input {
+      padding: 15px 20px;
+      border: 1.5px solid var(--border);
+      border-radius: 100px;
+      background: var(--white);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .checker-field input:focus { border-color: var(--purple); }
+    .checker-result {
+      display: none;
+      margin-top: 24px;
+      padding: 20px 26px;
+      border-radius: 16px;
+      font-size: 1.05rem;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+    .checker-result.show { display: block; }
+    .checker-result.available { background: #ecfdf3; color: #15803d; border: 1px solid #bbf7d0; }
+    .checker-result.forming { background: #fdf2f8; color: var(--pink); border: 1px solid #fbcfe8; }
+    .checker-result.none { background: var(--cream-dark); color: var(--text); border: 1px solid var(--border); }
+    .checker-result.error { background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
+    .checker-result a { color: inherit; font-weight: 600; }
+
+    /* Pricing */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    @media (min-width: 768px) { .pricing-grid { grid-template-columns: 1fr 1fr; align-items: stretch; } }
+    .price-card {
+      padding: 40px;
+      background: var(--cream);
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+    .price-card.featured {
+      background: linear-gradient(135deg, var(--purple) 0%, var(--purple-dark) 100%);
+      border: none;
+      position: relative;
+    }
+    .price-card.featured h3, .price-card.featured .price-value { color: var(--white); }
+    .price-card.featured p, .price-card.featured li { color: rgba(255,255,255,0.85); }
+    .price-ribbon {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--pink);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 6px 16px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .price-card h3 { margin-bottom: 12px; }
+    .price-value {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--purple);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .price-value small { font-size: 1.1rem; font-weight: 500; }
+    .price-strike {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      text-decoration: line-through;
+      margin-bottom: 4px;
+    }
+    .price-card > p { font-size: 0.95rem; margin: 14px 0 20px; }
+    .price-card ul {
+      list-style: none;
+      text-align: left;
+      margin: 0 0 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: var(--text-soft);
+    }
+    .price-card ul li { padding-left: 26px; position: relative; }
+    .price-card ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      color: var(--success);
+    }
+    .price-card.featured ul li::before { color: var(--pink-light); }
+    .price-card .btn { margin-top: auto; }
+    .pricing-note {
+      text-align: center;
+      max-width: 640px;
+      margin: 32px auto 0;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* Tiers */
+    .tier-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    @media (min-width: 768px) { .tier-grid { grid-template-columns: 1fr 1fr; } }
+    .tier-card {
+      padding: 40px;
+      background: var(--cream);
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+    }
+    .tier-kicker {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--pink);
+      margin-bottom: 10px;
+    }
+    .tier-card h3 { margin-bottom: 14px; }
+    .tier-card > p { font-size: 0.98rem; margin-bottom: 20px; }
+    .tier-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      margin-bottom: 26px;
+    }
+    .tier-card ul li { padding-left: 26px; position: relative; }
+    .tier-card ul li::before {
+      content: '•';
+      position: absolute;
+      left: 8px;
+      color: var(--purple);
+      font-weight: 700;
+    }
+    .tier-card .btn { margin-top: auto; align-self: flex-start; }
+
+    /* Trust */
+    .trust-panel {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 44px;
+      background: var(--white);
+      border-radius: 24px;
+      border-left: 4px solid var(--pink);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    }
+    .section-alt .trust-panel { background: var(--cream); }
+    .trust-panel p { font-size: 1.15rem; line-height: 1.8; color: var(--text); }
+    .trust-panel p + p { margin-top: 18px; font-size: 1rem; color: var(--text-soft); }
+
+    /* Form */
+    .form-section {
+      padding: 110px 0;
+      background: linear-gradient(135deg, var(--purple) 0%, var(--purple-dark) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .form-section::before {
+      content: '';
+      position: absolute;
+      top: -50%; right: -30%;
+      width: 80%; height: 150%;
+      background: radial-gradient(ellipse, rgba(211, 28, 130, 0.3) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .form-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 620px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .form-wrap h2 { color: var(--white); margin-bottom: 16px; }
+    .form-wrap > p { color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-bottom: 40px; }
+    .signup-form {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      text-align: left;
+    }
+    @media (min-width: 560px) { .signup-form { grid-template-columns: 1fr 1fr; } }
+    .form-field { display: flex; flex-direction: column; gap: 6px; }
+    .form-field-full { grid-column: 1 / -1; }
+    .form-field label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+    }
+    .form-field input {
+      padding: 15px 20px;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      border-radius: 100px;
+      background: rgba(255,255,255,0.1);
+      color: var(--white);
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-field input::placeholder { color: rgba(255,255,255,0.5); }
+    .form-field input:focus { border-color: rgba(255,255,255,0.6); }
+    .signup-form .btn { grid-column: 1 / -1; margin-top: 10px; }
+    .form-note {
+      grid-column: 1 / -1;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      margin-top: 6px;
+    }
+    .form-message {
+      grid-column: 1 / -1;
+      display: none;
+      padding: 16px 22px;
+      border-radius: 16px;
+      font-size: 1rem;
+      font-weight: 500;
+      text-align: center;
+    }
+    .form-message.success { display: block; background: rgba(255,255,255,0.95); color: var(--success); }
+    .form-message.error { display: block; background: rgba(255,255,255,0.95); color: #b91c1c; }
+    .founding-locked {
+      display: none;
+      grid-column: 1 / -1;
+      margin-top: 4px;
+      padding: 14px 22px;
+      border-radius: 16px;
+      background: var(--pink);
+      color: var(--white);
+      font-weight: 700;
+      text-align: center;
+      font-size: 1.05rem;
+    }
+    .founding-locked.show { display: block; }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .faq-item {
+      background: var(--white);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .faq-item:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.04); }
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 22px 28px;
+      background: none;
+      border: none;
+      width: 100%;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      text-align: left;
+    }
+    .faq-question svg {
+      width: 20px; height: 20px;
+      flex-shrink: 0;
+      color: var(--text-muted);
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-question svg { transform: rotate(180deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .faq-answer-inner {
+      padding: 0 28px 22px;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-soft);
+    }
+    .faq-item.open .faq-answer { max-height: 400px; }
+
+    /* Footer */
+    footer {
+      padding: 72px 0 36px;
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      margin-bottom: 56px;
+    }
+    @media (min-width: 768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+    .footer-brand { max-width: 280px; }
+    .footer-logo { height: 40px; margin-bottom: 16px; }
+    .footer-brand p { font-size: 0.9rem; line-height: 1.65; margin-bottom: 20px; }
+    .footer-col h4 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 18px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 12px; }
+    .footer-col a { font-size: 0.9rem; color: var(--text-soft); text-decoration: none; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--purple); }
+    .footer-bottom {
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+    @media (min-width: 768px) { .footer-bottom { flex-direction: row; justify-content: space-between; } }
+    .copyright { font-size: 0.85rem; color: var(--text-muted); }
+    .legal-links { display: flex; gap: 24px; }
+    .legal-links a { font-size: 0.85rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .legal-links a:hover { color: var(--purple); }
+  </style>
+</head>
+<body>
+<header id="header">
+<div class="container">
+<nav>
+<a href="index.html"><img alt="SkoolMotion" class="logo" src="logo.png"/></a>
+<div class="nav-links">
+<a href="#availability">Check Availability</a>
+<a href="#pricing">Pricing</a>
+<a href="#trust">Trust &amp; Safety</a>
+<a href="#faq">FAQ</a>
+<a href="carpool-driver.html">Become a Driver</a>
+</div>
+<div class="nav-cta">
+<a class="btn btn-primary" href="#pre-register">Claim Founding Rate</a>
+</div>
+<button aria-label="Menu" class="menu-btn"><span></span><span></span><span></span></button>
+<div class="mobile-menu">
+<a href="#availability">Check Availability</a>
+<a href="#pricing">Pricing</a>
+<a href="#trust">Trust &amp; Safety</a>
+<a href="#faq">FAQ</a>
+<a href="carpool-driver.html">Become a Driver</a>
+<a class="btn btn-primary" href="#pre-register">Claim Founding Rate</a>
+</div>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<div class="container">
+<div class="hero-content">
+<div class="hero-badge">
+<span class="hero-badge-dot"></span>
+        Founding rate: first 200 families lock $79/mo for year one
+      </div>
+<h1>A trusted neighbor for <span>the school run.</span></h1>
+<p class="hero-text">Every driver is fully vetted and state-certified to drive schoolchildren — cleared to the same standard Massachusetts requires of school bus drivers. Carpool is available in participating neighborhoods — check yours below.</p>
+<div class="hero-buttons">
+<a class="btn btn-primary" href="#availability">Check Your Neighborhood</a>
+<a class="btn btn-outline" href="#pre-register">Claim Your Founding Rate</a>
+</div>
+<p class="hero-note">Claim your founding rate now — pay nothing until a route goes live near you.</p>
+</div>
+</div>
+</section>
+
+<section class="section section-alt" id="availability">
+<div class="container">
+<div class="section-header">
+<span class="section-tag">Availability</span>
+<h2>Is carpool in your neighborhood yet?</h2>
+<p>Carpool routes run in participating neighborhoods, and we're building new ones every week. Enter your school and ZIP to see where yours stands.</p>
+</div>
+<div class="checker-card">
+<form class="checker-form" id="availability-form" novalidate>
+<div class="checker-field">
+<label for="check_school">School name</label>
+<input id="check_school" name="school" placeholder="Lincoln Elementary" required type="text"/>
+</div>
+<div class="checker-field">
+<label for="check_zip">ZIP code</label>
+<input id="check_zip" inputmode="numeric" name="zip" placeholder="02445" required type="text"/>
+</div>
+<button class="btn btn-primary" type="submit">Check</button>
+</form>
+<div class="checker-result" id="availability-result" role="status"></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="pricing">
+<div class="container">
+<div class="section-header">
+<span class="section-tag">Membership</span>
+<h2>One simple membership. Nothing until your route is live.</h2>
+<p>Membership covers the safety and platform layer: driver vetting and state certification, route matching, live tracking on every run, payment handling, and support.</p>
+</div>
+<div class="pricing-grid">
+<div class="price-card">
+<h3>Carpool Membership</h3>
+<div class="price-value">$89<small>/mo</small></div>
+<p>The standard rate once founding spots are gone.</p>
+<ul>
+<li>A fully vetted, state-certified parent driver on your route</li>
+<li>Live GPS tracking and verification PIN on every run</li>
+<li>Route matching at your school</li>
+<li>Payment handling and 24/7 support</li>
+</ul>
+<a class="btn btn-outline" href="#pre-register">Pre-Register</a>
+</div>
+<div class="price-card featured">
+<div class="price-ribbon">Founding Families — first 200 only</div>
+<h3>Founding Family Rate</h3>
+<div class="price-strike">$89/mo</div>
+<div class="price-value">$79<small>/mo</small></div>
+<p>Locked in for your entire first year. Claim it now, pay nothing until a route goes live near you.</p>
+<ul>
+<li>Everything in the standard membership</li>
+<li>$79/mo locked for 12 months from your first ride</li>
+<li>Priority matching when routes open at your school</li>
+<li>Prepay the school year and save an extra 10%</li>
+</ul>
+<a class="btn btn-white" href="#pre-register">Claim Your Founding Rate</a>
+</div>
+</div>
+<p class="pricing-note">Your membership is separate from the trip cost-share — the gas-and-wear reimbursement that passes 100% to your driver, itemized on every invoice. You'll see your route's full estimated cost in the app before you ever enroll, and billing only starts when you join a live route.</p>
+</div>
+</section>
+
+<section class="section section-alt" id="tiers">
+<div class="container">
+<div class="section-header">
+<span class="section-tag">Two Ways to Ride</span>
+<h2>The neighborly way — or the guaranteed way</h2>
+<p>Carpool is our community tier. If your family needs a guaranteed ride every single day, our professional service is built for that.</p>
+</div>
+<div class="tier-grid">
+<div class="tier-card">
+<div class="tier-kicker">Community Tier</div>
+<h3>Parent Carpool</h3>
+<p>A vetted neighbor, their own car, their schedule. Warm, personal, and easy on the budget — a parent who drives the same run you do, best effort every day.</p>
+<ul>
+<li>Fully vetted parent driver, state-certified to drive schoolchildren</li>
+<li>Their own family car, personally spot-checked</li>
+<li>School-run schedule set by your driver</li>
+<li>Best effort — if your driver is sick, that day's run may not happen</li>
+</ul>
+<a class="btn btn-primary" href="#pre-register">Claim Your Founding Rate</a>
+</div>
+<div class="tier-card">
+<div class="tier-kicker">Guaranteed Tier</div>
+<h3>Professional Service</h3>
+<p>Our professional fleet: certified drivers in certified, retrofitted vehicles that pass state inspection twice a year — with backup coverage when a driver is out.</p>
+<ul>
+<li>Certified professional drivers and inspected fleet vehicles</li>
+<li>Backup drivers — your ride is covered even when someone is out</li>
+<li>Flexible scheduling, on-demand rides, activities and summer transport</li>
+<li>The right fit for families who need a guarantee every day</li>
+</ul>
+<a class="btn btn-outline" href="index.html#features">Explore the Professional Service</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="trust">
+<div class="container">
+<div class="section-header">
+<span class="section-tag">Trust &amp; Safety</span>
+<h2>Fully vetted, every single driver</h2>
+<p>Cleared and certified to the same standard Massachusetts requires of school bus drivers.</p>
+</div>
+<div class="trust-panel">
+<p>Every SkoolMotion driver completes Massachusetts 7D certification — the state's special license for driving schoolchildren — plus state criminal and sex-offender registry screening (CORI and SORI), the same clearance required of school bus drivers.</p>
+<p>On every carpool run you also get live GPS tracking, verification PIN pickup, and a driver whose own child is often in the car — because they're a parent at your school, driving the run they already make.</p>
+</div>
+</div>
+</section>
+
+<section class="form-section" id="pre-register">
+<div class="container">
+<div class="form-wrap">
+<h2>Claim your founding rate now</h2>
+<p>Lock $79/mo for your first year — one of 200 founding-family spots. You pay nothing until a carpool route goes live near you.</p>
+<form class="signup-form" id="interest-form" novalidate>
+<div class="form-field">
+<label for="first_name">First name *</label>
+<input autocomplete="given-name" id="first_name" name="first_name" placeholder="Jordan" required type="text"/>
+</div>
+<div class="form-field">
+<label for="last_name">Last name *</label>
+<input autocomplete="family-name" id="last_name" name="last_name" placeholder="Rivera" required type="text"/>
+</div>
+<div class="form-field form-field-full">
+<label for="phone">Mobile phone *</label>
+<input autocomplete="tel" id="phone" name="phone" placeholder="(617) 555-0123" required type="tel"/>
+</div>
+<div class="form-field form-field-full">
+<label for="school_name">Your child's school (optional)</label>
+<input id="school_name" name="school_name" placeholder="Lincoln Elementary" type="text"/>
+</div>
+<div class="form-field form-field-full">
+<label for="email">Email (optional)</label>
+<input autocomplete="email" id="email" name="email" placeholder="you@example.com" type="email"/>
+</div>
+<div class="form-field">
+<label for="home_city">City (optional)</label>
+<input autocomplete="address-level2" id="home_city" name="home_city" placeholder="Brookline" type="text"/>
+</div>
+<div class="form-field">
+<label for="home_zip">ZIP (optional)</label>
+<input autocomplete="postal-code" id="home_zip" inputmode="numeric" name="home_zip" placeholder="02445" type="text"/>
+</div>
+<div class="form-message" id="interest-form-message" role="status"></div>
+<div class="founding-locked" id="founding-locked">Founding rate locked: $79/mo</div>
+<button class="btn btn-white" type="submit">Claim My Founding Rate</button>
+<p class="form-note">No card required. We'll only reach out when a route is forming or live near you.</p>
+</form>
+</div>
+</div>
+</section>
+
+<section class="section section-alt" id="faq">
+<div class="container">
+<div class="section-header">
+<span class="section-tag">FAQ</span>
+<h2>Questions from rider families</h2>
+<p>Straight answers before you claim your rate.</p>
+</div>
+<div class="faq-list">
+<div class="faq-item">
+<button aria-expanded="false" class="faq-question">
+        When do I start paying?
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+</button>
+<div class="faq-answer"><div class="faq-answer-inner">Not until a carpool route goes live near you and you choose to join it. Pre-registering locks your $79/mo founding rate with no card and no charge. Your rate stays locked for 12 months from your first active month.</div></div>
+</div>
+<div class="faq-item">
+<button aria-expanded="false" class="faq-question">
+        Who will be driving my child?
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+</button>
+<div class="faq-answer"><div class="faq-answer-inner">A parent from your school community, driving the run they already make. Every SkoolMotion driver completes Massachusetts 7D certification — the state's special license for driving schoolchildren — plus state criminal and sex-offender registry screening (CORI and SORI), the same clearance required of school bus drivers. Before you enroll, you'll see your driver's profile, pickup window, and route.</div></div>
+</div>
+<div class="faq-item">
+<button aria-expanded="false" class="faq-question">
+        What does the membership cover — and what's the cost-share?
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+</button>
+<div class="faq-answer"><div class="faq-answer-inner">Membership covers the safety and platform layer: driver vetting and certification, matching, live tracking, payment handling, and support. The trip cost-share is different — it's gas-and-wear reimbursement that passes 100% to your driver, itemized separately on your invoice. The app shows your route's full estimated monthly cost before you enroll, so there are no surprises.</div></div>
+</div>
+<div class="faq-item">
+<button aria-expanded="false" class="faq-question">
+        What if my driver is sick or away?
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+</button>
+<div class="faq-answer"><div class="faq-answer-inner">Carpool is a community tier with a real neighbor behind the wheel, so there's no guarantee for every single day — if your driver is out, that run may not happen. When it does happen, the app helps you fall back on SkoolMotion's professional on-demand service so your child still gets to school. Families who need a guaranteed daily ride should look at our professional service.</div></div>
+</div>
+<div class="faq-item">
+<button aria-expanded="false" class="faq-question">
+        Is carpool available at my school?
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+</button>
+<div class="faq-answer"><div class="faq-answer-inner">Carpool runs in participating neighborhoods — use the availability checker above to see your school's status. If drivers near you are still in certification, we'll notify you the moment your route goes live. If there's nothing yet, joining the waitlist tells us exactly where to build next. And if a parent you trust already drives your school run, refer them — every new driver opens a route.</div></div>
+</div>
+<div class="faq-item">
+<button aria-expanded="false" class="faq-question">
+        Can I save by prepaying the school year?
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+</button>
+<div class="faq-answer"><div class="faq-answer-inner">Yes — prepay the school year and save 10% on your membership, on top of the founding rate if you've locked one. Prepay is offered once your route is live; nothing is charged while you wait.</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<footer id="contact">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<img alt="SkoolMotion" class="footer-logo" src="logo.png"/>
+<p>Safe, reliable school transportation for modern families in Greater Boston.</p>
+<p style="margin-top: 12px; font-size: 0.85rem;">
+<strong>Email:</strong> <a href="mailto:support@skoolmotion.com">support@skoolmotion.com</a><br/>
+<strong>Phone:</strong> (617) 991-9152<br/>
+<strong>Address:</strong> 675 VFW Parkway, Suite 103, Chestnut Hill, MA 02467
+      </p>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<ul>
+<li><a href="index.html#story">About Us</a></li>
+<li><a href="index.html#features">Features</a></li>
+<li><a href="index.html#safety">Safety</a></li>
+<li><a href="carpool-driver.html">Become a Carpool Driver</a></li>
+<li><a href="carpool-membership.html">Carpool Membership</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Support</h4>
+<ul>
+<li><a href="support.html">Help Center</a></li>
+<li><a href="index.html#safety">Safety</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Legal</h4>
+<ul>
+<li><a href="terms.html">Terms of Service</a></li>
+<li><a href="privacy.html">Privacy Policy</a></li>
+<li><a href="cookie.html">Cookie Policy</a></li>
+<li><a href="account-deletion.html">Delete account</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p class="copyright">© 2026 Skool Motion Inc. All rights reserved.</p>
+<div class="legal-links">
+<a href="terms.html">Terms</a>
+<a href="privacy.html">Privacy</a>
+<a href="cookie.html">Cookies</a>
+</div>
+</div>
+</div>
+</footer>
+
+<script src="config.js"></script>
+<script>
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 30));
+
+    // Mobile menu toggle
+    const menuBtn = document.querySelector('.menu-btn');
+    const nav = document.querySelector('nav');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => nav.classList.toggle('menu-open'));
+      document.querySelectorAll('.mobile-menu a').forEach(a => {
+        a.addEventListener('click', () => nav.classList.remove('menu-open'));
+      });
+    }
+
+    // Smooth scroll for in-page anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Availability checker → GET ${API_BASE}/api/carpool/availability
+    (function() {
+      const form = document.getElementById('availability-form');
+      const resultEl = document.getElementById('availability-result');
+      if (!form) return;
+
+      function showResult(html, type) {
+        resultEl.innerHTML = html;
+        resultEl.className = 'checker-result show ' + type;
+      }
+
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const school = form.school.value.trim();
+        const zip = form.zip.value.trim();
+        if (!school || !zip) {
+          showResult('Please enter both your school name and ZIP code.', 'error');
+          return;
+        }
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Checking…';
+
+        try {
+          const url = API_BASE + '/api/carpool/availability?school=' +
+            encodeURIComponent(school) + '&zip=' + encodeURIComponent(zip);
+          const res = await fetch(url);
+          if (!res.ok) throw new Error();
+          const data = await res.json();
+
+          if (data.state === 'available') {
+            showResult('Good news — carpool routes are live near you. Claim your founding rate below and we\'ll match you with a route at ' + school + '.', 'available');
+          } else if (data.state === 'forming') {
+            const who = data.formingDrivers
+              ? data.formingDrivers + (data.formingDrivers === 1 ? ' driver in your area is' : ' drivers in your area are')
+              : 'Drivers in your area are';
+            showResult(who + ' in certification now. Claim your founding rate below and we\'ll notify you the moment your route goes live.', 'forming');
+          } else {
+            showResult('Not in your neighborhood yet — join the waitlist below and we\'ll build it there. Every waitlist entry tells us exactly where to open the next route.', 'none');
+          }
+        } catch (err) {
+          showResult('We couldn\'t check availability right now. Please try again in a moment, or pre-register below and we\'ll follow up.', 'error');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Check';
+        }
+      });
+    })();
+
+    // Founding-family pre-registration → POST ${API_BASE}/api/carpool/interest
+    (function() {
+      const form = document.getElementById('interest-form');
+      const messageEl = document.getElementById('interest-form-message');
+      const foundingEl = document.getElementById('founding-locked');
+      if (!form) return;
+
+      const params = new URLSearchParams(window.location.search);
+      const utm = {
+        utm_source: params.get('utm_source') || null,
+        utm_medium: params.get('utm_medium') || null,
+        utm_campaign: params.get('utm_campaign') || null
+      };
+
+      function showMessage(text, type) {
+        messageEl.textContent = text;
+        messageEl.className = 'form-message ' + type;
+      }
+
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const firstName = form.first_name.value.trim();
+        const lastName = form.last_name.value.trim();
+        const phone = form.phone.value.trim();
+        if (!firstName || !lastName || !phone) {
+          showMessage('Please fill in your first name, last name, and phone number.', 'error');
+          return;
+        }
+
+        const body = {
+          first_name: firstName,
+          last_name: lastName,
+          phone: phone,
+          email: form.email.value.trim() || null,
+          school_name: form.school_name.value.trim() || null,
+          home_city: form.home_city.value.trim() || null,
+          home_zip: form.home_zip.value.trim() || null,
+          utm_source: utm.utm_source,
+          utm_medium: utm.utm_medium,
+          utm_campaign: utm.utm_campaign
+        };
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Claiming your rate…';
+
+        try {
+          const res = await fetch(API_BASE + '/api/carpool/interest', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+          });
+          const data = await res.json().catch(() => ({}));
+          if (!res.ok) {
+            throw new Error(data.message || 'Something went wrong. Please try again.');
+          }
+          showMessage(data.message || "You're on the list! We'll let you know the moment a route is forming near you.", 'success');
+          if (data.founding === true) {
+            foundingEl.classList.add('show');
+          } else {
+            foundingEl.classList.remove('show');
+          }
+          form.reset();
+        } catch (err) {
+          foundingEl.classList.remove('show');
+          showMessage(err.message || 'Something went wrong. Please try again or email support@skoolmotion.com.', 'error');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Claim My Founding Rate';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

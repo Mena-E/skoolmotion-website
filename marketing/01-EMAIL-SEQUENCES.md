@@ -20,7 +20,7 @@ Welcome to the SkoolMotion waitlist! You just took the first step toward stress-
 
 Here's what we're building for Greater Boston families:
 
-- **Certified drivers** — every driver is 7D certified, background-checked, and medically cleared
+- **Fully vetted drivers** — every driver is state-certified to drive schoolchildren, cleared through Massachusetts's criminal and sex-offender registries, and medically cleared
 - **Live GPS tracking** — watch your child's ride in real time from your phone
 - **Verification PIN pickup** — your child confirms a secure code before boarding
 - **Flexible booking** — daily subscriptions, on-demand rides, or summer camp transport
@@ -104,13 +104,15 @@ We know the #1 question on your mind: **Is this actually safe?**
 It should be. We're asking you to trust us with the most important people in your life. So here's exactly what we do:
 
 **Every single driver has:**
-- Massachusetts 7D certification (the state's school transport license)
-- Criminal background check (CORI)
-- Sex Offender Registry (SORI) check
+- Massachusetts 7D certification — the state's special license for driving schoolchildren
+- State criminal record screening (CORI)
+- Sex-offender registry screening (SORI)
 - Physician-signed medical clearance
 - Minimum 3 years driving experience
 
-**Every single vehicle has:**
+That's the same clearance Massachusetts requires of school bus drivers.
+
+**Every single vehicle in our professional fleet has:**
 - State inspection twice per year (not once — twice)
 - Commercial insurance coverage
 - GPS tracking hardware installed

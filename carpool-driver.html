@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Become a Parent Carpool Driver | SkoolMotion</title>
+<meta content="You're already driving. Bring a neighbor's child along. Join SkoolMotion's community of trusted parent drivers — state-certified to drive schoolchildren, all training paid for by us, your costs covered." name="description"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="https://skoolmotion.com/carpool-driver.html" property="og:url"/>
+<meta content="That empty seat could change another parent's life." property="og:title"/>
+<meta content="You're already driving. Bring a neighbor's child along. Free state-certification training, your own car, your own school run, your costs covered." property="og:description"/>
+<meta content="https://skoolmotion.com/og-image.png" property="og:image"/>
+<!-- Favicon -->
+<link href="https://skoolmotion.com/og-image.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root {
+      --purple: #281C82;
+      --purple-dark: #1a1259;
+      --purple-light: #3d2da6;
+      --pink: #D31C82;
+      --pink-light: #e94da0;
+      --cream: #FDFCFA;
+      --cream-dark: #F5F3EF;
+      --text: #1a1a1f;
+      --text-soft: #4a4a52;
+      --text-muted: #7a7a85;
+      --border: #e8e6e1;
+      --white: #ffffff;
+      --success: #16a34a;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', -apple-system, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    h1, h2, h3 { font-weight: 600; line-height: 1.2; color: var(--text); }
+    h1 { font-size: clamp(2.5rem, 6vw, 4rem); letter-spacing: -0.03em; }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.02em; }
+    h3 { font-size: 1.25rem; }
+    p { color: var(--text-soft); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .btn-primary { background: var(--purple); color: var(--white); }
+    .btn-primary:hover {
+      background: var(--purple-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px -8px rgba(40, 28, 130, 0.4);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--purple); color: var(--purple); }
+
+    /* Navigation */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 0;
+      transition: all 0.3s ease;
+    }
+    header.scrolled {
+      background: rgba(253, 252, 250, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 14px 0;
+      box-shadow: 0 1px 0 var(--border);
+    }
+    nav { display: flex; align-items: center; justify-content: space-between; position: relative; }
+    .logo { height: 44px; }
+    .nav-links { display: none; align-items: center; gap: 40px; }
+    @media (min-width: 900px) { .nav-links { display: flex; } }
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-soft);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--purple); }
+    .nav-cta .btn { padding: 12px 24px; font-size: 0.9rem; }
+    .menu-btn {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    @media (min-width: 900px) { .menu-btn { display: none; } }
+    .menu-btn span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+    nav.menu-open .menu-btn span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    nav.menu-open .menu-btn span:nth-child(2) { opacity: 0; }
+    nav.menu-open .menu-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      background: var(--white);
+      padding: 8px 24px 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+      z-index: 99;
+    }
+    nav.menu-open .mobile-menu { display: flex; }
+    .mobile-menu a {
+      padding: 14px 0;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text-soft);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:last-of-type { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--purple); }
+    .mobile-menu .btn { margin-top: 16px; text-align: center; }
+    .mobile-menu .btn-primary { color: var(--white); }
+    @media (max-width: 899px) { .nav-cta { display: none; } }
+    @media (min-width: 900px) { .mobile-menu { display: none !important; } }
+
+    /* Hero */
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      padding: 160px 0 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%; right: -20%;
+      width: 80%; height: 120%;
+      background: radial-gradient(ellipse, rgba(211, 28, 130, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%; left: -15%;
+      width: 60%; height: 80%;
+      background: radial-gradient(ellipse, rgba(40, 28, 130, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 18px 8px 10px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-soft);
+      margin-bottom: 28px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .hero-badge-dot {
+      width: 10px; height: 10px;
+      background: var(--pink);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    .hero h1 { margin-bottom: 20px; }
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.35rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .hero-text {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      max-width: 640px;
+      margin: 0 auto 36px;
+    }
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+    @media (min-width: 480px) { .hero-buttons { flex-direction: row; justify-content: center; } }
+    .hero-note {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 20px;
+    }
+
+    /* Founding counter band */
+    .founding-band {
+      padding: 56px 0;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .founding-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: center;
+      text-align: center;
+    }
+    @media (min-width: 768px) {
+      .founding-inner { flex-direction: row; justify-content: space-between; text-align: left; }
+    }
+    .founding-copy h3 { font-size: 1.4rem; margin-bottom: 8px; }
+    .founding-copy p { max-width: 560px; }
+    .founding-count {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .founding-count strong {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--pink);
+      line-height: 1;
+    }
+    .founding-count span { font-size: 0.95rem; color: var(--text-muted); font-weight: 500; }
+
+    /* Sections */
+    .section { padding: 110px 0; }
+    .section-alt { background: var(--white); }
+    .section-tag {
+      display: inline-block;
+      padding: 8px 18px;
+      background: var(--cream-dark);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--purple);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 24px;
+    }
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 64px;
+    }
+    .section-header h2 { margin-bottom: 16px; }
+    .section-header p { font-size: 1.1rem; }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    @media (min-width: 768px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+    .feature-card {
+      padding: 36px;
+      background: var(--cream);
+      border-radius: 24px;
+      transition: all 0.3s ease;
+    }
+    .section-alt .feature-card { background: var(--cream); }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -16px rgba(40, 28, 130, 0.15);
+    }
+    .feature-icon {
+      width: 56px; height: 56px;
+      background: var(--white);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .feature-icon svg { width: 28px; height: 28px; color: var(--purple); }
+    .feature-card h3 { margin-bottom: 12px; }
+    .feature-card p { font-size: 0.95rem; line-height: 1.65; }
+
+    /* Steps */
+    .steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    @media (min-width: 768px) { .steps { grid-template-columns: repeat(3, 1fr); gap: 60px; } }
+    .step { text-align: center; }
+    .step-number {
+      width: 72px; height: 72px;
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--purple);
+      transition: all 0.3s ease;
+    }
+    .step:hover .step-number {
+      background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 100%);
+      border-color: transparent;
+      color: var(--white);
+      transform: scale(1.05);
+    }
+    .step h3 { margin-bottom: 12px; }
+    .step p { max-width: 280px; margin: 0 auto; }
+
+    /* Trust */
+    .trust-panel {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 44px;
+      background: var(--cream);
+      border-radius: 24px;
+      border-left: 4px solid var(--pink);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    }
+    .trust-panel p { font-size: 1.15rem; line-height: 1.8; color: var(--text); }
+    .trust-panel p + p { margin-top: 18px; font-size: 1rem; color: var(--text-soft); }
+
+    /* Form */
+    .form-section {
+      padding: 110px 0;
+      background: linear-gradient(135deg, var(--purple) 0%, var(--purple-dark) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .form-section::before {
+      content: '';
+      position: absolute;
+      top: -50%; right: -30%;
+      width: 80%; height: 150%;
+      background: radial-gradient(ellipse, rgba(211, 28, 130, 0.3) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .form-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 620px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .form-wrap h2 { color: var(--white); margin-bottom: 16px; }
+    .form-wrap > p { color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-bottom: 40px; }
+    .signup-form {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      text-align: left;
+    }
+    @media (min-width: 560px) { .signup-form { grid-template-columns: 1fr 1fr; } }
+    .form-field { display: flex; flex-direction: column; gap: 6px; }
+    .form-field-full { grid-column: 1 / -1; }
+    .form-field label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+    }
+    .form-field input {
+      padding: 15px 20px;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      border-radius: 100px;
+      background: rgba(255,255,255,0.1);
+      color: var(--white);
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-field input::placeholder { color: rgba(255,255,255,0.5); }
+    .form-field input:focus { border-color: rgba(255,255,255,0.6); }
+    .signup-form .btn { grid-column: 1 / -1; margin-top: 10px; }
+    .btn-white { background: var(--white); color: var(--purple); }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 12px 32px -8px rgba(0,0,0,0.15); }
+    .form-note {
+      grid-column: 1 / -1;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      margin-top: 6px;
+    }
+    .form-message {
+      grid-column: 1 / -1;
+      display: none;
+      padding: 16px 22px;
+      border-radius: 16px;
+      font-size: 1rem;
+      font-weight: 500;
+      text-align: center;
+    }
+    .form-message.success { display: block; background: rgba(255,255,255,0.95); color: var(--success); }
+    .form-message.error { display: block; background: rgba(255,255,255,0.95); color: #b91c1c; }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .faq-item {
+      background: var(--cream);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .faq-item:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.04); }
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 22px 28px;
+      background: none;
+      border: none;
+      width: 100%;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      text-align: left;
+    }
+    .faq-question svg {
+      width: 20px; height: 20px;
+      flex-shrink: 0;
+      color: var(--text-muted);
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-question svg { transform: rotate(180deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .faq-answer-inner {
+      padding: 0 28px 22px;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-soft);
+    }
+    .faq-item.open .faq-answer { max-height: 400px; }
+
+    /* Footer */
+    footer {
+      padding: 72px 0 36px;
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      margin-bottom: 56px;
+    }
+    @media (min-width: 768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+    .footer-brand { max-width: 280px; }
+    .footer-logo { height: 40px; margin-bottom: 16px; }
+    .footer-brand p { font-size: 0.9rem; line-height: 1.65; margin-bottom: 20px; }
+    .footer-col h4 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 18px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 12px; }
+    .footer-col a { font-size: 0.9rem; color: var(--text-soft); text-decoration: none; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--purple); }
+    .footer-bottom {
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+    @media (min-width: 768px) { .footer-bottom { flex-direction: row; justify-content: space-between; } }
+    .copyright { font-size: 0.85rem; color: var(--text-muted); }
+    .legal-links { display: flex; gap: 24px; }
+    .legal-links a { font-size: 0.85rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .legal-links a:hover { color: var(--purple); }
+  </style>
+</head>
+<body>
+<header id="header">
+<div class="container">
+<nav>
+<a href="index.html"><img alt="SkoolMotion" class="logo" src="logo.png"/></a>
+<div class="nav-links">
+<a href="#why">Why Drive</a>
+<a href="#how">How It Works</a>
+<a href="#trust">Trust &amp; Safety</a>
+<a href="#faq">FAQ</a>
+<a href="carpool-membership.html">For Families</a>
+</div>
+<div class="nav-cta">
+<a class="btn btn-primary" href="#pre-register">Claim a Founding Spot</a>
+</div>
+<button aria-label="Menu" class="menu-btn"><span></span><span></span><span></span></button>
+<div class="mobile-menu">
+<a href="#why">Why Drive</a>
+<a href="#how">How It Works</a>
+<a href="#trust">Trust &amp; Safety</a>
+<a href="#faq">FAQ</a>
+<a href="carpool-membership.html">For Families</a>
+<a class="btn btn-primary" href="#pre-register">Claim a Founding Spot</a>
+</div>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<div class="container">
+<div class="hero-content">
+<div class="hero-badge">
+<span class="hero-badge-dot"></span>
+        Founding class forming now — 100 founding spots
+      </div>
+<h1>That empty seat could change <span>another parent's life.</span></h1>
+<p class="hero-sub">You're already driving. Bring a neighbor's child along.</p>
+<p class="hero-text">Join SkoolMotion's community of trusted parent drivers — every one state-certified to drive schoolchildren, with all training paid for by us. Your own car, your own school run, your costs covered.</p>
+<div class="hero-buttons">
+<a class="btn btn-primary" href="#pre-register">Claim a Founding Spot</a>
+<a class="btn btn-outline" href="#how">See How It Works</a>
+</div>
+<p class="hero-note">Available in participating neighborhoods — pre-register to bring it to yours.</p>
+</div>
+</div>
+</section>
+
+<section class="founding-band">
+<div class="container">
+<div class="founding-inner">
+<div class="founding-copy">
+<h3>Be one of the first 100 founding drivers</h3>
+<p>Founding drivers get first pick of training dates this August, priority route matching at their own school, and a founding badge families see in the app.</p>
+</div>
+<div class="founding-count">
+<strong>100</strong>
+<span>founding spots<br/>for the 2026/27 school year</span>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section section-alt" id="why">
+<div class="container">
+<div class="section-header">
+<span class="section-tag">Why Drive</span>
+<h2>The school run you already do — made to count</h2>
+<p>No new job, no new schedule. Just the drive you make every morning, with a trusted neighbor's child in that empty seat.</p>
+</div>
+<div class="features-grid">
+<div class="feature-card">
+<div class="feature-icon">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+</div>
+<h3>Free State-Certification Training</h3>
+<p>We pay for all of it. You complete the state's certification to drive schoolchildren at no cost — SkoolMotion covers the training, the paperwork, and the fees.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+</div>
+<h3>A Trusted Community</h3>
+<p>You join a community of fully vetted parent drivers — parents like you, driving the same school run, cleared and certified to the same standard Massachusetts requires of school bus drivers.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><path d="M12 6v2m0 8v2"></path></svg>
+</div>
+<h3>Your Costs Covered</h3>
+<p>This isn't a job — it's your own school run with the costs covered. Families on your route share the cost of the drive, and every dollar of that reimbursement passes to you.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect height="13" width="15" x="1" y="3"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+</div>
+<h3>Your Own Car, Your Own Schedule</h3>
+<p>Drive your own car on the run you already make, on the days that work for you. No shifts, no dispatch — you set the route and the rhythm, and the app handles the rest.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="how">
+<div class="container">
+<div class="section-header">
+<span class="section-tag">How It Works</span>
+<h2>Three steps to your first shared school run</h2>
+<p>Pre-register today, train this August, drive when school starts.</p>
+</div>
+<div class="steps">
+<div class="step">
+<div class="step-number">1</div>
+<h3>Pre-Register</h3>
+<p>Tell us who you are and where your school run goes. It takes under a minute — no commitment yet.</p>
+</div>
+<div class="step">
+<div class="step-number">2</div>
+<h3>Train — On Us</h3>
+<p>Complete the state's certification to drive schoolchildren in a free training class near you. SkoolMotion pays for everything.</p>
+</div>
+<div class="step">
+<div class="step-number">3</div>
+<h3>Drive Your Run</h3>
+<p>Bring a vetted neighbor's child along on the drive you already make — live-tracked, supported, and with your costs covered.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section section-alt" id="trust">
+<div class="container">
+<div class="section-header">
+<span class="section-tag">Trust &amp; Safety</span>
+<h2>Fully vetted, like every SkoolMotion driver</h2>
+<p>Cleared and certified to the same standard Massachusetts requires of school bus drivers.</p>
+</div>
+<div class="trust-panel">
+<p>Every SkoolMotion driver completes Massachusetts 7D certification — the state's special license for driving schoolchildren — plus state criminal and sex-offender registry screening (CORI and SORI), the same clearance required of school bus drivers.</p>
+<p>Parent carpool drivers meet that exact same bar. Add live GPS tracking on every run, verification PIN pickup, and personally spot-checked vehicles, and families know exactly who is driving — and where their child is — at every moment.</p>
+</div>
+</div>
+</section>
+
+<section class="form-section" id="pre-register">
+<div class="container">
+<div class="form-wrap">
+<h2>Claim one of 100 founding spots</h2>
+<p>Pre-register now — it takes under a minute. We'll reach out with free training dates in your area.</p>
+<form class="signup-form" id="driver-form" novalidate>
+<div class="form-field">
+<label for="first_name">First name *</label>
+<input autocomplete="given-name" id="first_name" name="first_name" placeholder="Jordan" required type="text"/>
+</div>
+<div class="form-field">
+<label for="last_name">Last name *</label>
+<input autocomplete="family-name" id="last_name" name="last_name" placeholder="Rivera" required type="text"/>
+</div>
+<div class="form-field form-field-full">
+<label for="phone">Mobile phone *</label>
+<input autocomplete="tel" id="phone" name="phone" placeholder="(617) 555-0123" required type="tel"/>
+</div>
+<div class="form-field form-field-full">
+<label for="email">Email (optional)</label>
+<input autocomplete="email" id="email" name="email" placeholder="you@example.com" type="email"/>
+</div>
+<div class="form-field">
+<label for="home_city">City (optional)</label>
+<input autocomplete="address-level2" id="home_city" name="home_city" placeholder="Brookline" type="text"/>
+</div>
+<div class="form-field">
+<label for="home_zip">ZIP (optional)</label>
+<input autocomplete="postal-code" id="home_zip" inputmode="numeric" name="home_zip" placeholder="02445" type="text"/>
+</div>
+<div class="form-message" id="driver-form-message" role="status"></div>
+<button class="btn btn-white" type="submit">Claim My Founding Spot</button>
+<p class="form-note">We'll only use this to coordinate your free certification training. No spam, ever.</p>
+</form>
+</div>
+</div>
+</section>
+
+<section class="section" id="faq">
+<div class="container">
+<div class="section-header">
+<span class="section-tag">FAQ</span>
+<h2>Questions from parents like you</h2>
+<p>The honest answers, before you claim your spot.</p>
+</div>
+<div class="faq-list">
+<div class="faq-item">
+<button aria-expanded="false" class="faq-question">
+        Is this a job?
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+</button>
+<div class="faq-answer"><div class="faq-answer-inner">No. You're a parent driving your own school run with a neighbor's child along. Families on your route share the cost of the drive — gas and wear — and that reimbursement passes 100% to you. It covers your costs; it isn't a wage.</div></div>
+</div>
+<div class="faq-item">
+<button aria-expanded="false" class="faq-question">
+        What certification will I hold?
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+</button>
+<div class="faq-answer"><div class="faq-answer-inner">You'll complete Massachusetts 7D certification — the state's special license for driving schoolchildren — plus state criminal and sex-offender registry screening (CORI and SORI), the same clearance required of school bus drivers. SkoolMotion pays for all training and fees.</div></div>
+</div>
+<div class="faq-item">
+<button aria-expanded="false" class="faq-question">
+        Do I use my own car?
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+</button>
+<div class="faq-answer"><div class="faq-answer-inner">Yes — your own car, on your own schedule. We verify your registration, insurance, and vehicle condition before your first shared run, and vehicles are personally spot-checked.</div></div>
+</div>
+<div class="faq-item">
+<button aria-expanded="false" class="faq-question">
+        How much time does training take?
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+</button>
+<div class="faq-answer"><div class="faq-answer-inner">Training classes run through August in small cohorts, scheduled around parents' lives. Founding drivers pick their dates first. Everything — the class, the paperwork, the fees — is paid for by SkoolMotion.</div></div>
+</div>
+<div class="faq-item">
+<button aria-expanded="false" class="faq-question">
+        Is carpool driving available in my neighborhood?
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+</button>
+<div class="faq-answer"><div class="faq-answer-inner">Carpool routes run in participating neighborhoods, and we're building new ones around every founding driver. Pre-register with your city and ZIP and we'll match you with families at your school as routes open.</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<footer id="contact">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<img alt="SkoolMotion" class="footer-logo" src="logo.png"/>
+<p>Safe, reliable school transportation for modern families in Greater Boston.</p>
+<p style="margin-top: 12px; font-size: 0.85rem;">
+<strong>Email:</strong> <a href="mailto:support@skoolmotion.com">support@skoolmotion.com</a><br/>
+<strong>Phone:</strong> (617) 991-9152<br/>
+<strong>Address:</strong> 675 VFW Parkway, Suite 103, Chestnut Hill, MA 02467
+      </p>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<ul>
+<li><a href="index.html#story">About Us</a></li>
+<li><a href="index.html#features">Features</a></li>
+<li><a href="index.html#safety">Safety</a></li>
+<li><a href="carpool-driver.html">Become a Carpool Driver</a></li>
+<li><a href="carpool-membership.html">Carpool Membership</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Support</h4>
+<ul>
+<li><a href="support.html">Help Center</a></li>
+<li><a href="index.html#safety">Safety</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Legal</h4>
+<ul>
+<li><a href="terms.html">Terms of Service</a></li>
+<li><a href="privacy.html">Privacy Policy</a></li>
+<li><a href="cookie.html">Cookie Policy</a></li>
+<li><a href="account-deletion.html">Delete account</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p class="copyright">© 2026 Skool Motion Inc. All rights reserved.</p>
+<div class="legal-links">
+<a href="terms.html">Terms</a>
+<a href="privacy.html">Privacy</a>
+<a href="cookie.html">Cookies</a>
+</div>
+</div>
+</div>
+</footer>
+
+<script src="config.js"></script>
+<script>
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 30));
+
+    // Mobile menu toggle
+    const menuBtn = document.querySelector('.menu-btn');
+    const nav = document.querySelector('nav');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => nav.classList.toggle('menu-open'));
+      document.querySelectorAll('.mobile-menu a').forEach(a => {
+        a.addEventListener('click', () => nav.classList.remove('menu-open'));
+      });
+    }
+
+    // Smooth scroll for in-page anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Pre-registration form → POST ${API_BASE}/api/carpool/pre-register
+    (function() {
+      const form = document.getElementById('driver-form');
+      const messageEl = document.getElementById('driver-form-message');
+      if (!form) return;
+
+      const params = new URLSearchParams(window.location.search);
+      const utm = {
+        utm_source: params.get('utm_source') || null,
+        utm_medium: params.get('utm_medium') || null,
+        utm_campaign: params.get('utm_campaign') || null
+      };
+
+      function showMessage(text, type) {
+        messageEl.textContent = text;
+        messageEl.className = 'form-message ' + type;
+      }
+
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const firstName = form.first_name.value.trim();
+        const lastName = form.last_name.value.trim();
+        const phone = form.phone.value.trim();
+        if (!firstName || !lastName || !phone) {
+          showMessage('Please fill in your first name, last name, and phone number.', 'error');
+          return;
+        }
+
+        const body = {
+          first_name: firstName,
+          last_name: lastName,
+          phone: phone,
+          email: form.email.value.trim() || null,
+          home_city: form.home_city.value.trim() || null,
+          home_zip: form.home_zip.value.trim() || null,
+          utm_source: utm.utm_source,
+          utm_medium: utm.utm_medium,
+          utm_campaign: utm.utm_campaign
+        };
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Claiming your spot…';
+
+        try {
+          const res = await fetch(API_BASE + '/api/carpool/pre-register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+          });
+          const data = await res.json().catch(() => ({}));
+          if (!res.ok) {
+            throw new Error(data.message || 'Something went wrong. Please try again.');
+          }
+          showMessage(data.message || "You're in! We'll reach out with free training dates near you.", 'success');
+          form.reset();
+        } catch (err) {
+          showMessage(err.message || 'Something went wrong. Please try again or email support@skoolmotion.com.', 'error');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Claim My Founding Spot';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
