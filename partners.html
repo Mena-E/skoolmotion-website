@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Partner With SkoolMotion | Fleet &amp; Independent Operators</title>
+<meta content="Put your vehicles to work on school runs. SkoolMotion partners with professional transport operators — full fleets and independent state-certified drivers — keep 70% of every fare with weekly payouts." name="description"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="https://skoolmotion.com/partners.html" property="og:url"/>
+<meta content="Your vehicles. Our school-run demand." property="og:title"/>
+<meta content="Partner with SkoolMotion — full fleets and independent operators keep 70% of every fare, paid weekly. Register your fleet in minutes." property="og:description"/>
+<meta content="https://skoolmotion.com/og-image.png" property="og:image"/>
+<!-- Favicon -->
+<link href="https://skoolmotion.com/og-image.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="shell.css" rel="stylesheet"/>
+<script src="config.js"></script>
+<script src="nav.js"></script>
+<script src="analytics.js"></script>
+<style>
+    :root {
+      --purple: #281C82;
+      --purple-dark: #1a1259;
+      --pink: #D31C82;
+      --cream: #FDFCFA;
+      --cream-dark: #F5F3EF;
+      --text: #1a1a1f;
+      --text-soft: #4a4a52;
+      --text-muted: #7a7a85;
+      --page-border: #e8e6e1;
+      --white: #ffffff;
+      --success: #16a34a;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Outfit', -apple-system, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    h1, h2, h3 { font-weight: 600; line-height: 1.2; color: var(--text); }
+    h1 { font-size: clamp(2.5rem, 6vw, 4rem); letter-spacing: -0.03em; }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.02em; }
+    h3 { font-size: 1.25rem; }
+    p { color: var(--text-soft); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .btn-primary { background: var(--purple); color: var(--white); }
+    .btn-primary:hover {
+      background: var(--purple-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px -8px rgba(40, 28, 130, 0.4);
+    }
+    .btn-outline { background: transparent; color: var(--text); border: 1.5px solid var(--page-border); }
+    .btn-outline:hover { border-color: var(--purple); color: var(--purple); }
+
+    /* Hero */
+    .hero {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      padding: 170px 0 90px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%; right: -20%;
+      width: 80%; height: 120%;
+      background: radial-gradient(ellipse, rgba(211, 28, 130, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; text-align: center; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 18px;
+      background: var(--white);
+      border: 1px solid var(--page-border);
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-soft);
+      margin-bottom: 28px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .hero h1 { margin-bottom: 20px; }
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p.lead { font-size: 1.15rem; max-width: 620px; margin: 0 auto 36px; }
+    .hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    section { padding: 90px 0; }
+    .section-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .section-title { text-align: center; margin-bottom: 16px; }
+    .section-sub { text-align: center; max-width: 640px; margin: 0 auto 56px; font-size: 1.05rem; }
+
+    .value-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    @media (min-width: 700px) { .value-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1000px) { .value-grid { grid-template-columns: repeat(4, 1fr); } }
+    .value-card {
+      background: var(--white);
+      border: 1px solid var(--page-border);
+      border-radius: 20px;
+      padding: 32px 26px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .value-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px -12px rgba(40, 28, 130, 0.15); }
+    .value-card .stat { font-size: 2rem; font-weight: 700; color: var(--purple); margin-bottom: 8px; }
+    .value-card h3 { margin-bottom: 8px; font-size: 1.1rem; }
+    .value-card p { font-size: 0.95rem; }
+
+    .who-grid { display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 900px; margin: 0 auto; }
+    @media (min-width: 800px) { .who-grid { grid-template-columns: 1fr 1fr; } }
+    .who-card {
+      background: var(--white);
+      border: 1px solid var(--page-border);
+      border-radius: 24px;
+      padding: 40px 34px;
+    }
+    .who-card.highlight { border-color: var(--purple); box-shadow: 0 16px 40px -16px rgba(40, 28, 130, 0.2); }
+    .who-card h3 { font-size: 1.35rem; margin-bottom: 12px; }
+    .who-card p { margin-bottom: 12px; }
+    .who-card .fine { font-size: 0.85rem; color: var(--text-muted); }
+
+    .steps { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; }
+    .step { display: flex; gap: 24px; padding: 26px 0; border-bottom: 1px solid var(--page-border); }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      flex-shrink: 0;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--purple);
+      color: var(--white);
+      font-weight: 700;
+      display: grid;
+      place-items: center;
+    }
+    .step h3 { margin-bottom: 6px; }
+
+    .faq-section { background: var(--cream-dark); }
+    .faq-list { max-width: 720px; margin: 0 auto; }
+    .faq-item { background: var(--white); border: 1px solid var(--page-border); border-radius: 16px; margin-bottom: 12px; overflow: hidden; }
+    .faq-question {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 24px;
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      text-align: left;
+      cursor: pointer;
+    }
+    .faq-question::after { content: '+'; font-size: 1.4rem; color: var(--purple); transition: transform 0.25s; }
+    .faq-item.open .faq-question::after { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .faq-item.open .faq-answer { max-height: 400px; }
+    .faq-answer p { padding: 0 24px 20px; font-size: 0.98rem; }
+
+    .cta-banner {
+      background: linear-gradient(135deg, var(--purple) 0%, #3d2da6 100%);
+      border-radius: 28px;
+      padding: 70px 40px;
+      text-align: center;
+      color: var(--white);
+    }
+    .cta-banner h2 { color: var(--white); margin-bottom: 14px; }
+    .cta-banner p { color: rgba(255,255,255,0.85); max-width: 560px; margin: 0 auto 32px; }
+    .cta-banner .btn-white { background: var(--white); color: var(--purple); }
+    .cta-banner .btn-white:hover { transform: translateY(-2px); box-shadow: 0 12px 32px -8px rgba(0,0,0,0.25); }
+    .cta-banner .login-note { margin-top: 18px; font-size: 0.9rem; }
+    .cta-banner .login-note a { color: var(--white); font-weight: 600; }
+  </style>
+</head>
+<body>
+<header id="header">
+<div class="container">
+<nav>
+<a aria-label="SkoolMotion home" class="logo" href="index.html"><img alt="SkoolMotion" src="logo.png"/></a>
+<div class="nav-links">
+<div class="nav-group">
+<a data-nav="families" href="index.html">Families <span class="nav-caret">▾</span></a>
+<div class="dropdown">
+<a href="index.html#features">On-Demand Rides</a>
+<a href="carpool-membership.html">Carpool Membership</a>
+<a href="index.html#safety">Safety</a>
+<a href="index.html#faq">FAQ</a>
+</div>
+</div>
+<div class="nav-group">
+<a data-nav="carpool" href="carpool-membership.html">Carpool <span class="nav-caret">▾</span></a>
+<div class="dropdown">
+<a href="carpool-membership.html">For Families</a>
+<a href="carpool-driver.html">Become a Carpool Driver</a>
+</div>
+</div>
+<a class="active" data-nav="partners" href="partners.html">Partners</a>
+<a data-nav="support" href="support.html">Support</a>
+</div>
+<div class="nav-cta">
+<a class="login-link" href="https://admin.skoolmotion.com/vendor-portal/login">Log in</a>
+<a class="btn btn-primary" href="index.html#download">Get the App</a>
+</div>
+<button aria-expanded="false" aria-label="Menu" class="menu-btn"><span></span><span></span><span></span></button>
+<div class="mobile-menu">
+<span class="mobile-group-label">Families</span>
+<a href="index.html#features">On-Demand Rides</a>
+<a href="index.html#safety">Safety</a>
+<a href="index.html#faq">FAQ</a>
+<span class="mobile-group-label">Carpool</span>
+<a href="carpool-membership.html">Carpool Membership</a>
+<a href="carpool-driver.html">Become a Carpool Driver</a>
+<span class="mobile-group-label">Partners &amp; more</span>
+<a class="active" href="partners.html">Partners</a>
+<a href="support.html">Support</a>
+<a href="https://admin.skoolmotion.com/vendor-portal/login">Log in</a>
+<a class="btn btn-primary" href="index.html#download">Get the App</a>
+</div>
+</nav>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="container">
+<div class="hero-content">
+<div class="hero-badge">For fleets &amp; independent operators</div>
+<h1>Your vehicles.<br/><span>Our school-run demand.</span></h1>
+<p class="lead">SkoolMotion partners with professional transport operators across Greater Boston — from established fleets to independent drivers who are state-certified to drive schoolchildren. You bring the vehicles; we bring families who need rides.</p>
+<div class="hero-ctas">
+<a class="btn btn-primary js-partner-register" href="https://admin.skoolmotion.com/vendor-portal/register">Register as a Partner</a>
+<a class="btn btn-outline" href="https://admin.skoolmotion.com/vendor-portal/login">Partner Log in</a>
+</div>
+</div>
+</div>
+</section>
+
+<section id="why">
+<div class="container">
+<span class="section-label">Why partner</span>
+<h2 class="section-title">Built to keep your vehicles earning</h2>
+<p class="section-sub">School-run demand is steady, recurring, and local. We handle the families, payments, and dispatch — you run your vehicles.</p>
+<div class="value-grid">
+<div class="value-card">
+<div class="stat">70%</div>
+<h3>Of every fare</h3>
+<p>You keep 70% of every completed ride your vehicles serve. No hidden fees, no lease terms.</p>
+</div>
+<div class="value-card">
+<div class="stat">Weekly</div>
+<h3>Payouts via Stripe</h3>
+<p>Earnings settle weekly, straight to your bank account through Stripe. Full ledger in your portal.</p>
+</div>
+<div class="value-card">
+<div class="stat">Recurring</div>
+<h3>School-run demand</h3>
+<p>Morning and afternoon runs, subscriptions, activities, and summer programs — demand that repeats every week.</p>
+</div>
+<div class="value-card">
+<div class="stat">Yours</div>
+<h3>You stay in control</h3>
+<p>Your vehicles, your drivers, your availability. Set your fleet up once and manage everything from the partner portal.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="who" style="background: var(--cream-dark);">
+<div class="container">
+<span class="section-label">Who can join</span>
+<h2 class="section-title">Fleets of fifty. Fleets of one.</h2>
+<p class="section-sub">If you operate vehicles that carry schoolchildren in Massachusetts, there's a place for you here.</p>
+<div class="who-grid">
+<div class="who-card">
+<h3>Fleet operators</h3>
+<p>Van and bus companies serving schools today. Register your company, add your vehicles and drivers, and put idle capacity to work on family-booked rides.</p>
+<p class="fine">Company details, vehicle documents, and driver credentials are reviewed by our team before going live.</p>
+</div>
+<div class="who-card highlight">
+<h3>Independent drivers</h3>
+<p>Certified to drive schoolchildren and running your own vehicle? Register as an independent operator — <strong>a fleet of one is welcome.</strong> Same portal, same 70% share, same weekly payouts.</p>
+<p class="fine">You'll need your Massachusetts 7D driver certificate and vehicle documentation; every operator is fully vetted before their first ride.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="how">
+<div class="container">
+<span class="section-label">How it works</span>
+<h2 class="section-title">Live in four steps</h2>
+<div class="steps">
+<div class="step">
+<div class="step-num">1</div>
+<div>
+<h3>Register online</h3>
+<p>Create your partner account in minutes — company or individual.</p>
+</div>
+</div>
+<div class="step">
+<div class="step-num">2</div>
+<div>
+<h3>Add vehicles &amp; drivers</h3>
+<p>Upload vehicle documents, driver credentials, and insurance through the guided onboarding wizard.</p>
+</div>
+</div>
+<div class="step">
+<div class="step-num">3</div>
+<div>
+<h3>Verification review</h3>
+<p>Our team reviews every document and credential. You'll hear from us if anything needs attention.</p>
+</div>
+</div>
+<div class="step">
+<div class="step-num">4</div>
+<div>
+<h3>Go live</h3>
+<p>Approved vehicles start receiving ride assignments from families near you — and earnings appear in your weekly settlement.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="faq-section" id="faq">
+<div class="container">
+<span class="section-label">FAQ</span>
+<h2 class="section-title">Partner questions, answered</h2>
+<div class="faq-list">
+<div class="faq-item">
+<button aria-expanded="false" class="faq-question">What do I earn as a partner?</button>
+<div class="faq-answer"><p>You keep 70% of every fare on rides your vehicles complete. Settlements run weekly through Stripe, and your portal shows a full per-ride ledger.</p></div>
+</div>
+<div class="faq-item">
+<button aria-expanded="false" class="faq-question">Can I join as a single independent driver?</button>
+<div class="faq-answer"><p>Yes. Independent operators register through the same partner portal as a one-vehicle operation — the requirements, revenue share, and payouts are identical to fleet partners.</p></div>
+</div>
+<div class="faq-item">
+<button aria-expanded="false" class="faq-question">What credentials do I need?</button>
+<div class="faq-answer"><p>Drivers need the Massachusetts credentials required to transport schoolchildren (including the 7D driver certificate), and vehicles need current registration, inspection, and insurance documentation. Everything is uploaded during onboarding and verified by our team.</p></div>
+</div>
+<div class="faq-item">
+<button aria-expanded="false" class="faq-question">How long does review take?</button>
+<div class="faq-answer"><p>Most complete applications are reviewed within a few business days. You can track your status in the partner portal, and we'll reach out if any document needs a second look.</p></div>
+</div>
+<div class="faq-item">
+<button aria-expanded="false" class="faq-question">Is this the same as the parent carpool program?</button>
+<div class="faq-answer"><p>No — this page is for professional operators and their vehicles. Parents who want to drive their own neighborhood school run should look at our <a href="carpool-driver.html">Parent Carpool Driver program</a> instead.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="cta-banner">
+<h2>Put your vehicles to work</h2>
+<p>Registration takes minutes. Add your fleet — or just your own vehicle — and start serving families near you.</p>
+<a class="btn btn-white js-partner-register" href="https://admin.skoolmotion.com/vendor-portal/register">Register as a Partner</a>
+<p class="login-note">Already a partner? <a href="https://admin.skoolmotion.com/vendor-portal/login">Log in to your portal</a></p>
+</div>
+</div>
+</section>
+</main>
+<footer id="contact">
+<div class="container">
+<div class="footer-grid footer-grid-5">
+<div class="footer-brand">
+<img alt="SkoolMotion" class="footer-logo" src="logo.png"/>
+<p>Safe, reliable school transportation for modern families in Greater Boston.</p>
+<p style="margin-top: 12px; font-size: 0.85rem;">
+<span class="config-address"></span><br/>
+<a class="config-phone-link" href="#"></a><br/>
+<a class="config-email-link" href="#"></a>
+</p>
+</div>
+<div class="footer-col">
+<h4>Families</h4>
+<ul>
+<li><a href="index.html#features">On-Demand Rides</a></li>
+<li><a href="carpool-membership.html">Carpool Membership</a></li>
+<li><a href="index.html#safety">Safety</a></li>
+<li><a href="index.html#download">Get the App</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Drivers &amp; Partners</h4>
+<ul>
+<li><a href="carpool-driver.html">Become a Carpool Driver</a></li>
+<li><a href="partners.html">Vendor &amp; Fleet Partners</a></li>
+<li><a href="https://admin.skoolmotion.com/vendor-portal/register">Partner Registration</a></li>
+<li><a href="https://admin.skoolmotion.com/vendor-portal/login">Partner Log in</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<ul>
+<li><a href="index.html#story">Our Story</a></li>
+<li><a href="support.html">Support</a></li>
+<li><a href="careers.html">Careers</a></li>
+<li><a href="press.html">Press</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Legal</h4>
+<ul>
+<li><a href="privacy.html">Privacy Policy</a></li>
+<li><a href="terms.html">Terms of Service</a></li>
+<li><a href="cookie.html">Cookie Policy</a></li>
+<li><a href="sms-opt-in.html">SMS Opt-In</a></li>
+<li><a href="account-deletion.html">Account Deletion</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p class="copyright">© 2026 SkoolMotion. All rights reserved.</p>
+<div class="legal-links">
+<a href="privacy.html">Privacy</a>
+<a href="terms.html">Terms</a>
+<a href="cookie.html">Cookies</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Funnel event: partner registration clicks (placement = hero or banner)
+    document.querySelectorAll('.js-partner-register').forEach((a, i) => {
+      a.addEventListener('click', () => {
+        window.SM.track('partner_register_click', { placement: i === 0 ? 'hero' : 'banner' });
+      });
+    });
+  </script>
+</body>
+</html>

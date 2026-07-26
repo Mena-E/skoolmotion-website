@@ -4,12 +4,12 @@
   --bg-soft:#faf8f5;
   --text:#0a0a1a;
   --text-soft:#5b5b70;
-  --purple:#1f1d63;
-  --pink:#d10a7b;
+  --purple:#281C82;
+  --pink:#D31C82;
   --purple-light:#efefff;
   --pink-light:#ffe5f3;
   --border:#e7e3ee;
-  --shadow:0 12px 30px rgba(31,29,99,0.12);
+  --shadow:0 12px 30px rgba(40,28,130,0.12);
   --radius:20px;
 }
 
@@ -68,7 +68,8 @@
 @media (min-width: 900px){ #header .nav-links{ display:flex; } }
 
 #header .nav-group{ position:relative; }
-#header .nav-group > a{
+#header .nav-group > a,
+#header .nav-links > a{
   font-weight:700;
   font-size:0.85rem;
   letter-spacing:0.12em;
@@ -79,8 +80,25 @@
   display:inline-flex;
   align-items:center;
   gap:8px;
+  padding-bottom:2px;
+  border-bottom:2px solid transparent;
 }
-#header .nav-group > a:hover{ opacity:1; }
+#header .nav-group > a:hover,
+#header .nav-links > a:hover{ opacity:1; }
+
+/* "You are here" — set per page on the matching top-level item */
+#header .nav-group > a.active,
+#header .nav-links > a.active{
+  opacity:1;
+  color:var(--purple);
+  border-bottom-color:var(--pink);
+}
+
+#header .nav-caret{
+  font-size:0.7em;
+  line-height:1;
+  opacity:0.55;
+}
 
 #header .dropdown{
   position:absolute;
@@ -94,7 +112,9 @@
   padding:14px;
   display:none;
 }
-#header .nav-group:hover .dropdown{ display:block; }
+#header .nav-group:hover .dropdown,
+#header .nav-group.open .dropdown,
+#header .nav-group:focus-within .dropdown{ display:block; }
 #header .dropdown a{
   display:block;
   padding:10px 12px;
@@ -128,7 +148,65 @@
   color:#fff;
   box-shadow:0 10px 25px rgba(31,29,99,0.25);
 }
-#header .btn-primary:hover{ background:#16144d; }
+#header .btn-primary:hover{ background:#1a1259; }
+
+#header .nav-cta{ display:none; align-items:center; gap:18px; }
+@media (min-width: 900px){ #header .nav-cta{ display:flex; } }
+#header .login-link{
+  font-weight:700;
+  font-size:0.85rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--text-soft);
+  text-decoration:none;
+  white-space:nowrap;
+}
+#header .login-link:hover{ color:var(--purple); }
+
+/* Mobile menu (shared — legal pages previously had a dead hamburger) */
+#header .mobile-menu{
+  display:none;
+  flex-direction:column;
+  position:absolute;
+  top:100%; left:0; right:0;
+  background:#fff;
+  padding:8px 24px 24px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.08);
+  border-bottom-left-radius:16px;
+  border-bottom-right-radius:16px;
+  z-index:99;
+  max-height:calc(100vh - 90px);
+  overflow-y:auto;
+}
+#header nav.menu-open .mobile-menu{ display:flex; }
+@media (min-width: 900px){ #header .mobile-menu{ display:none !important; } }
+#header .mobile-group-label{
+  margin-top:18px;
+  font-size:0.75rem;
+  font-weight:700;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--text-soft);
+  opacity:0.7;
+}
+#header .mobile-menu a{
+  padding:12px 0;
+  font-size:1.05rem;
+  font-weight:600;
+  color:var(--text);
+  text-decoration:none;
+  border-bottom:1px solid var(--border);
+  transition:color 0.2s;
+}
+#header .mobile-menu a:last-of-type{ border-bottom:none; }
+#header .mobile-menu a:hover{ color:var(--purple); }
+#header .mobile-menu a.active{ color:var(--purple); }
+#header .mobile-menu .btn{ margin-top:16px; text-align:center; border-bottom:none; }
+#header .mobile-menu .btn-primary{ color:#fff; }
+#header nav.menu-open .menu-btn span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+#header nav.menu-open .menu-btn span:nth-child(2){ opacity:0; }
+#header nav.menu-open .menu-btn span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+#header .menu-btn span{ transition:transform 0.3s, opacity 0.3s; }
 
 /* Give inner pages room for the fixed header */
 body.has-home-shell{ padding-top: 92px; }
@@ -150,6 +228,8 @@ body.has-home-shell{ padding-top: 92px; }
   border-bottom:1px solid var(--border);
 }
 @media (min-width: 768px){ #contact .footer-grid{ grid-template-columns: 2fr 1fr 1fr 1fr; } }
+@media (min-width: 768px){ #contact .footer-grid.footer-grid-5{ grid-template-columns: 2fr 1fr 1.2fr 1fr 1fr; } }
+@media (min-width: 480px) and (max-width: 767px){ #contact .footer-grid.footer-grid-5{ grid-template-columns: 1fr 1fr; } }
 #contact .footer-brand{ max-width:280px; text-align:left; justify-self:start; }
 #contact .footer-logo{ height:40px; margin-bottom:16px; width:auto; }
 #contact .footer-brand p{ font-size:0.9rem; line-height:1.65; margin-bottom:20px; color:var(--text-soft); }
