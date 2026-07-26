@@ -538,6 +538,7 @@
     .legal-links a { font-size: 0.85rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
     .legal-links a:hover { color: var(--purple); }
   </style>
+<script src="analytics.js"></script>
 </head>
 <body>
 <header id="header">
@@ -867,12 +868,9 @@
       const messageEl = document.getElementById('driver-form-message');
       if (!form) return;
 
-      const params = new URLSearchParams(window.location.search);
-      const utm = {
-        utm_source: params.get('utm_source') || null,
-        utm_medium: params.get('utm_medium') || null,
-        utm_campaign: params.get('utm_campaign') || null
-      };
+      // Session-persisted UTM attribution (analytics.js) — survives
+      // navigation from the landing page to this form.
+      const utm = window.SM.utm();
 
       function showMessage(text, type) {
         messageEl.textContent = text;
@@ -899,7 +897,9 @@
           home_zip: form.home_zip.value.trim() || null,
           utm_source: utm.utm_source,
           utm_medium: utm.utm_medium,
-          utm_campaign: utm.utm_campaign
+          utm_campaign: utm.utm_campaign,
+          utm_term: utm.utm_term,
+          utm_content: utm.utm_content
         };
 
         const submitBtn = form.querySelector('button[type="submit"]');
@@ -917,6 +917,7 @@
             throw new Error(data.message || 'Something went wrong. Please try again.');
           }
           showMessage(data.message || "You're in! We'll reach out with free training dates near you.", 'success');
+          window.SM.track('driver_prereg_submit', { zip: body.home_zip || null });
           form.reset();
         } catch (err) {
           showMessage(err.message || 'Something went wrong. Please try again or email support@skoolmotion.com.', 'error');
