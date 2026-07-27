@@ -308,3 +308,13 @@ body.has-home-shell{ padding-top: 92px; }
 .disabled-link:hover{ text-decoration:none; }
 
 #contact .footer-col{ text-align:left; }
+
+/* Anti-bot honeypot — visually removed, still in the DOM for bots to fill */
+.sm-hp {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+}

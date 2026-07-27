@@ -51,3 +51,44 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 });
+
+// =============================================
+// ANTI-BOT FORM PROTECTION
+// Server-enforced by the TransafeGo API (lib/form-abuse) — these fields
+// feed it. Cloudflare Turnstile activates when a site key is set here AND
+// TURNSTILE_SECRET_KEY is configured on the admin app (Vercel env).
+// =============================================
+const TURNSTILE_SITE_KEY = "";
+
+window.SM_FORMS = {
+  // Stamped when the page rendered — submissions faster than a human can
+  // type are dropped server-side.
+  startedAt: Date.now(),
+  // Attach the anti-bot fields to a JSON payload before POSTing.
+  protect: function (body, form) {
+    body.form_started_at = window.SM_FORMS.startedAt;
+    var hp = form && form.querySelector('input[name="website"]');
+    body.website = hp ? hp.value : '';
+    if (window.turnstile && TURNSTILE_SITE_KEY) {
+      try { body.turnstile_token = window.turnstile.getResponse(); } catch (e) { /* widget not ready */ }
+    }
+    return body;
+  }
+};
+
+// Load the Turnstile widget only when configured
+if (TURNSTILE_SITE_KEY) {
+  document.addEventListener('DOMContentLoaded', function () {
+    var anchors = document.querySelectorAll('.sm-turnstile');
+    if (!anchors.length) return;
+    anchors.forEach(function (el) {
+      el.classList.add('cf-turnstile');
+      el.setAttribute('data-sitekey', TURNSTILE_SITE_KEY);
+    });
+    var s = document.createElement('script');
+    s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+    s.async = true;
+    s.defer = true;
+    document.head.appendChild(s);
+  });
+}

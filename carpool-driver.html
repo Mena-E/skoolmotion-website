@@ -692,6 +692,8 @@
 <h2>Pre-register to drive</h2>
 <p>Pre-register now — it takes under a minute. We'll reach out with free training dates in your area.</p>
 <form class="signup-form" id="driver-form" novalidate>
+<div class="sm-hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+<div class="sm-turnstile"></div>
 <div class="form-field">
 <label for="first_name">First name *</label>
 <input autocomplete="given-name" id="first_name" name="first_name" placeholder="Jordan" required type="text"/>
@@ -907,6 +909,8 @@
           utm_term: utm.utm_term,
           utm_content: utm.utm_content
         };
+
+        if (window.SM_FORMS) window.SM_FORMS.protect(body, form);
 
         const submitBtn = form.querySelector('button[type="submit"]');
         submitBtn.disabled = true;

@@ -786,6 +786,8 @@
 <h2>Pre-register for your neighborhood</h2>
 <p>Join the list and we'll match you the moment a route opens at your school. You pay nothing until a carpool route goes live near you.</p>
 <form class="signup-form" id="interest-form" novalidate>
+<div class="sm-hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+<div class="sm-turnstile"></div>
 <div class="form-field">
 <label for="first_name">First name *</label>
 <input autocomplete="given-name" id="first_name" name="first_name" placeholder="Jordan" required type="text"/>
@@ -1065,6 +1067,8 @@
           utm_term: utm.utm_term,
           utm_content: utm.utm_content
         };
+
+        if (window.SM_FORMS) window.SM_FORMS.protect(body, form);
 
         const submitBtn = form.querySelector('button[type="submit"]');
         submitBtn.disabled = true;
