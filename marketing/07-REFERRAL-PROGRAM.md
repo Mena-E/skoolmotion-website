@@ -10,7 +10,7 @@
 | 1 | Early Bird | 1 | Priority access at launch | $0 |
 | 2 | Advocate | 3 | First ride free | ~$15-20 |
 | 3 | Champion | 5 | First month of rides free | ~$200-400 |
-| 4 | Founding Family | 10 | Permanent 15% discount on all rides | Ongoing |
+| 4 | Top Referrer | 10 | Top-referrer reward | Ongoing |
 
 **Why this works:**
 - Tier 1 is achievable for everyone — just share once. This gets the flywheel started.
@@ -137,7 +137,7 @@ Fewer steps = higher conversion. Every person who signs up immediately sees thei
 ### If Referrals Are Low
 - Make sharing easier (pre-written messages, one-click share buttons)
 - Increase reward value at Tier 1 (e.g., add a small discount)
-- Add urgency ("Founding Family status closes in X days")
+- Add urgency (referral tiers close at launch)
 - Feature top referrers on social media ("Our top referrer brought in 12 families!")
 - Send a dedicated referral push email to existing waitlist
 

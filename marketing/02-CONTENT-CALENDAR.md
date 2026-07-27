@@ -131,14 +131,14 @@ Join the SkoolMotion waitlist and share your personal link:
 - Refer 1 family → Priority access
 - Refer 3 families → First ride FREE
 - Refer 5 families → First MONTH free
-- Refer 10 families → Founding Family status (permanent discount)
+- Refer 10 families → top-referrer reward
 
 Every parent you tell gets you closer. Link in bio.
 
 **X:**
 Join the SkoolMotion waitlist. Refer 3 parents. Get your first ride free.
 
-Refer 10? You're a Founding Family — permanent discount, forever.
+Refer 10? You unlock our top referral reward.
 
 Waitlist → [link]
 
@@ -200,7 +200,7 @@ Built SkoolMotion because the school bus was late for the last time. Certified d
 **Post:** Starting at $15/ride. Sibling discounts. Multi-ride packages. Carpool matching saves 20%. Full price shown before you book. No hidden fees. Ever. SkoolMotion — honest pricing for honest service.
 
 ### Day 20 — Referral Reminder
-**Post:** Quick math: share your SkoolMotion waitlist link with 3 parents → your first ride is free. Share with 5 → your first month is free. Share with 10 → you're a Founding Family with a permanent discount. The link is in your welcome email. Use it.
+**Post:** Quick math: share your SkoolMotion waitlist link with 3 parents → your first ride is free. Share with 5 → your first month is free. Share with 10 → you unlock our top referral reward. The link is in your welcome email. Use it.
 
 ### Day 21 — Reel: Safety Checklist
 **Reel/TikTok:** Fast-paced checklist: "Things we check before any driver gets behind the wheel:" — State certification to drive schoolchildren ✓ — Criminal record screening ✓ — Sex-offender registry screening ✓ — Medical clearance ✓ — Vehicle inspection ✓ — GPS hardware ✓ — "Your child's safety isn't a feature. It's the whole point."
@@ -222,7 +222,7 @@ Built SkoolMotion because the school bus was late for the last time. Certified d
 **Post:** {{count}} families on the waitlist. {{referral_leaders}} referrals from our top sharer. The momentum is real. Greater Boston is ready. Are you? 5 days.
 
 ### Day 26 — Last Chance Referral
-**Post:** Last chance to earn Founding Family status. Once we launch, the referral tiers close. If you've been meaning to share your link — today's the day. 4 days to go.
+**Post:** Last chance to climb the referral tiers before launch. If you've been meaning to share your link — today's the day.
 
 ### Day 27 — App Preview
 **Reel/TikTok:** Full app walkthrough — show the home screen, booking flow, tracking screen, notifications. "This is what you've been waiting for. 3 days."

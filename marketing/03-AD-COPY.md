@@ -110,7 +110,7 @@ Join the SkoolMotion waitlist and share with other parents to unlock:
 - 1 referral → Priority access at launch
 - 3 referrals → First ride FREE
 - 5 referrals → First MONTH free
-- 10 referrals → Founding Family permanent discount
+- 10 referrals → top-referrer reward
 
 Spots are limited. Launching soon.
 

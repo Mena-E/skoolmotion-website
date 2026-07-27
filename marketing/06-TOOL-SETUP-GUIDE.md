@@ -99,7 +99,7 @@
 | Tier 1 | 1 referral | Priority access at launch |
 | Tier 2 | 3 referrals | First ride free |
 | Tier 3 | 5 referrals | First month of rides free |
-| Tier 4 | 10 referrals | Founding Family status (permanent discount) |
+| Tier 4 | 10 referrals | Top-referrer reward |
 
 4. **Design the referral widget:**
    - Match SkoolMotion branding (purple, white, cream)

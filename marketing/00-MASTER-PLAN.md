@@ -79,7 +79,7 @@
 - [ ] Urgency-based emails ("We launch in 10 days!")
 - [ ] Waitlist milestone social posts ("1,000 families and counting!")
 - [ ] Retargeting ads to website visitors who didn't sign up
-- [ ] Final referral push ("Last chance for Founding Family status")
+- [ ] Final referral push
 - [ ] Prep launch announcement email
 
 ---

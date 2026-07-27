@@ -32,7 +32,7 @@ We're launching soon in Boston, Brookline, Cambridge, Newton, and Somerville —
 - Refer 1 family → **Priority access** at launch
 - Refer 3 families → **First ride free**
 - Refer 5 families → **First month of rides free**
-- Refer 10 families → **Founding Family status** (permanent discount)
+- Refer 10 families → top-referrer reward
 
 [Your referral link: {{referral_link}}]
 
@@ -153,7 +153,7 @@ Here's what parents are saying:
 - Your reward tier: {{current_tier}}
 - Next reward: {{next_reward}} ({{referrals_needed}} more referrals)
 
-Every parent you refer gets you closer to free rides and Founding Family status.
+Every parent you refer gets you closer to free rides.
 
 [Share your link → {{referral_link}}]
 
@@ -162,7 +162,7 @@ Every parent you refer gets you closer to free rides and Founding Family status.
 ## Email 6: Urgency (Day 20)
 
 **Subject:** We launch in 10 days. Are you ready?
-**Preview text:** Founding Family spots are almost gone.
+**Preview text:** Referral rewards end at launch.
 
 ---
 
@@ -174,7 +174,7 @@ This is happening.
 - Lock in exclusive early-access pricing
 - Book rides for the upcoming school term
 
-**Founding Family status is limited.** Once we launch, the tiered referral rewards close. If you've been meaning to share your link — now is the time.
+Once we launch, the tiered referral rewards close. If you've been meaning to share your link — now is the time.
 
 Here's where you stand:
 - Referrals: {{referral_count}}
