@@ -722,6 +722,12 @@
 <button class="btn btn-white" type="submit">Pre-Register to Drive</button>
 <p class="form-note">We'll only use this to coordinate your free certification training. No spam, ever.</p>
 </form>
+<div class="form-success" hidden id="driver-form-success">
+<div aria-hidden="true" class="form-success-icon">✓</div>
+<h3>Thanks — you're in!</h3>
+<p>We'll reach out with free training dates near you.</p>
+<a class="btn" href="index.html#download">Get the SkoolMotion App</a>
+</div>
 </div>
 </div>
 </section>
@@ -926,9 +932,13 @@
           if (!res.ok) {
             throw new Error(data.message || 'Something went wrong. Please try again.');
           }
-          showMessage(data.message || "You're in! We'll reach out with free training dates near you.", 'success');
           window.SM.track('driver_prereg_submit', { zip: body.home_zip || null });
           form.reset();
+          messageEl.className = 'form-message';
+          const successEl = document.getElementById('driver-form-success');
+          form.style.display = 'none';
+          successEl.hidden = false;
+          successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
         } catch (err) {
           showMessage(err.message || 'Something went wrong. Please try again or email support@skoolmotion.com.', 'error');
         } finally {
