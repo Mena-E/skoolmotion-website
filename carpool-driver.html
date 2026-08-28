@@ -707,8 +707,8 @@
 <input autocomplete="tel" id="phone" name="phone" placeholder="(617) 555-0123" required type="tel"/>
 </div>
 <div class="form-field form-field-full">
-<label for="email">Email (optional)</label>
-<input autocomplete="email" id="email" name="email" placeholder="you@example.com" type="email"/>
+<label for="email">Email *</label>
+<input autocomplete="email" id="email" name="email" placeholder="you@example.com" required type="email"/>
 </div>
 <div class="form-field">
 <label for="home_city">City (optional)</label>
@@ -897,8 +897,13 @@
         const firstName = form.first_name.value.trim();
         const lastName = form.last_name.value.trim();
         const phone = form.phone.value.trim();
-        if (!firstName || !lastName || !phone) {
-          showMessage('Please fill in your first name, last name, and phone number.', 'error');
+        const email = form.email.value.trim();
+        if (!firstName || !lastName || !phone || !email) {
+          showMessage('Please fill in your first name, last name, phone number, and email.', 'error');
+          return;
+        }
+        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+          showMessage('Please enter a valid email address.', 'error');
           return;
         }
 
@@ -906,7 +911,7 @@
           first_name: firstName,
           last_name: lastName,
           phone: phone,
-          email: form.email.value.trim() || null,
+          email: email,
           home_city: form.home_city.value.trim() || null,
           home_zip: form.home_zip.value.trim() || null,
           utm_source: utm.utm_source,
