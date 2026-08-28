@@ -820,6 +820,12 @@
 <button class="btn btn-white" type="submit">Pre-Register Now</button>
 <p class="form-note">No card required. We'll only reach out when a route is forming or live near you.</p>
 </form>
+<div class="form-success" hidden id="interest-form-success">
+<div aria-hidden="true" class="form-success-icon">✓</div>
+<h3>Thanks — you're on the list!</h3>
+<p>Download the SkoolMotion app and sign in with this phone number to manage your spot. We'll let you know the moment a route is forming near you.</p>
+<a class="btn" href="index.html#download">Get the SkoolMotion App</a>
+</div>
 </div>
 </div>
 </section>
@@ -1084,9 +1090,13 @@
           if (!res.ok) {
             throw new Error(data.message || 'Something went wrong. Please try again.');
           }
-          showMessage(data.message || "You're on the list! We'll let you know the moment a route is forming near you.", 'success');
           window.SM.track('family_prereg_submit', { zip: body.home_zip || null });
           form.reset();
+          messageEl.className = 'form-message';
+          const successEl = document.getElementById('interest-form-success');
+          form.style.display = 'none';
+          successEl.hidden = false;
+          successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
         } catch (err) {
           showMessage(err.message || 'Something went wrong. Please try again or email support@skoolmotion.com.', 'error');
         } finally {
