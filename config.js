@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // feed it. Cloudflare Turnstile activates when a site key is set here AND
 // TURNSTILE_SECRET_KEY is configured on the admin app (Vercel env).
 // =============================================
-const TURNSTILE_SITE_KEY = "";
+const TURNSTILE_SITE_KEY = "0x4AAAAAACr7Kk8VlC9hoVxC";
 
 window.SM_FORMS = {
   // Stamped when the page rendered — submissions faster than a human can
