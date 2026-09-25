@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Static marketing website for **SkoolMotion** (student transportation / carpool platform), served at `skoolmotion.com`. There is no build step, no package.json, and no framework — each page is a self-contained `.html` file at the repo root. Deployment is automatic: push to `main` and Vercel deploys in under a minute (see `deployment-guide.md`). Product context lives in `PRD.md`.
+Static marketing website for **SkoolMotion** (student transportation platform), served at `skoolmotion.com`. There is no build step, no package.json, and no framework — each page is a self-contained `.html` file at the repo root. Deployment is automatic: push to `main` and Vercel deploys in under a minute (see `deployment-guide.md`). Product context lives in `PRD.md`.
 
 The application itself (admin portal + API + mobile app) lives in the separate `TransafeGo` repository; this site only markets it and submits leads to it.
 
@@ -19,8 +19,8 @@ Every page includes four shared files (see `index.html` for the include pattern)
 
 ## Conventions
 
-- Forms that submit data (carpool pre-registration, availability checker) POST to the admin app at `API_BASE` from `config.js` — never a hardcoded URL.
-- The carpool forms carry anti-bot protections enforced server-side: a hidden honeypot input (`name="website"`, styled by `.sm-hp` in `shell.css`), a form-render timestamp, and an optional Cloudflare Turnstile widget — all attached to the payload via `window.SM_FORMS.protect(body, form)` from `config.js`. Keep these on any new form that creates records, and never remove the honeypot "Website" field (humans don't see it; bots fill it).
+- Forms that submit data POST to the admin app at `API_BASE` from `config.js` — never a hardcoded URL. (The carpool pre-registration and availability forms were removed with the Parent Carpool Driver Program on 2026-09-25.)
+- Lead forms carry anti-bot protections enforced server-side: a hidden honeypot input (`name="website"`, styled by `.sm-hp` in `shell.css`), a form-render timestamp, and an optional Cloudflare Turnstile widget — all attached to the payload via `window.SM_FORMS.protect(body, form)` from `config.js`. Keep these on any new form that creates records, and never remove the honeypot "Website" field (humans don't see it; bots fill it).
 - When adding a page: include the four shared files above, and update `sitemap.xml` (and `robots.txt` if relevant).
 - `marketing/` contains marketing strategy documents (email sequences, ad copy, content calendar) — planning material, not site content served to visitors.
 - Pages like `privacy.html`, `cookie.html`, `account-deletion.html`, and `sms-opt-in` exist to satisfy app-store / Twilio compliance requirements — keep their URLs stable, as external services link to them.

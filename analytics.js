@@ -26,7 +26,7 @@
 
   // --- UTM capture: persist first-touch params for the session so a
   // visitor who lands on any page keeps attribution through to the
-  // carpool forms on other pages. Fresh URL params always win. ---
+  // lead forms on other pages. Fresh URL params always win. ---
   function readStored() {
     try {
       return JSON.parse(sessionStorage.getItem(STORAGE_KEY)) || {};
