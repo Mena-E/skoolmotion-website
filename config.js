@@ -14,8 +14,8 @@ const SITE_CONFIG = {
   phoneLink: "tel:+16179919152",
   email: "support@skoolmotion.com",
   privacyEmail: "privacy@skoolmotion.com",
-  address: "675 VFW Parkway, Suite 103",
-  city: "Chestnut Hill, MA 02467"
+  address: "867 Boylston St, 5th Floor",
+  city: "Boston, MA 02116"
 };
 
 // Auto-populate elements with class "config-phone", "config-email", etc.
