@@ -1,0 +1,22 @@
+{
+  "rewrites": [
+    { "source": "/partners", "destination": "/partners.html" },
+    { "source": "/careers", "destination": "/careers.html" },
+    { "source": "/support", "destination": "/support.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/terms", "destination": "/terms.html" },
+    { "source": "/cookie", "destination": "/cookie.html" },
+    { "source": "/sms-opt-in", "destination": "/sms-opt-in.html" },
+    { "source": "/account-deletion", "destination": "/account-deletion.html" },
+    { "source": "/families", "destination": "/school-rides.html" }
+  ],
+  "redirects": [
+    { "source": "/vendors", "destination": "/partners", "permanent": false },
+    { "source": "/organizations/:path*", "destination": "/", "permanent": false },
+    { "source": "/drivers", "destination": "/", "permanent": false },
+    { "source": "/safety", "destination": "/", "permanent": false },
+    { "source": "/about", "destination": "/", "permanent": false },
+    { "source": "/contact", "destination": "/support", "permanent": false },
+    { "source": "/accessibility", "destination": "/", "permanent": false }
+  ]
+}
